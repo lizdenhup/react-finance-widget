@@ -4,7 +4,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="navbar">Navbar</div>
+        <div className="navbar">
+          <a href="/signup">Signup</a>
+        </div>
       </div>
     );
   }

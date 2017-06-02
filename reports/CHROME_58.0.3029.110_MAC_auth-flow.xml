@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
-            tests="1">
+            failures="0"
+            tests="2">
 
   <testsuite name="auth-flow"
-    errors="0" failures="1" hostname="" id="" package="auth-flow" skipped="0"
-    tests="1" time="3.127" timestamp="Fri, 02 Jun 2017 20:22:52 GMT">
+    errors="0" failures="0" hostname="" id="" package="auth-flow" skipped="0"
+    tests="2" time="2.856" timestamp="Fri, 02 Jun 2017 20:45:37 GMT">
   
-    <testcase name="get to signup page" classname="auth-flow" time="3.127" assertions="1">  <failure message="Timed out while waiting for element &lt;.navbar&gt; to be present for 1000 milliseconds.">    at Object.get to signup page (/Users/elizabethdenhup/Development/react-finance-widget/tests/auth-flow.js:5:8)
-    at _combinedTickCallback (internal/process/next_tick.js:95:7)</failure>
+    <testcase name="get to signup page" classname="auth-flow" time="2.855" assertions="2">
 
     
+
+    
+    </testcase>
+  
+    <testcase name="signup user and redirect to dashboard" classname="auth-flow" time="0.001000" assertions="0">
     </testcase>
   
   
