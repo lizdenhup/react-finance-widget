@@ -5,11 +5,10 @@ import {
   Switch,
   Link
 } from 'react-router-dom'
-import './styles/uikit.css'
 
-const Signup = () => <form className="signup_form">Signup</form>
-const Home = () => <div>Home</div>
-const NotFound = () => <div>Not Found</div>
+import Home from '../views/Home';
+import Signup from '../views/Signup';
+import NotFound from '../views/NotFound';
 
 class App extends Component {
   render() {
