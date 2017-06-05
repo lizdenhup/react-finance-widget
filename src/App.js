@@ -5,31 +5,24 @@ import {
   Switch,
   Link
 } from 'react-router-dom'
-import { StyleSheet, css} from 'aphrodite';
 
-const styles = StyleSheet.create({
-  navbar: {
-    width: '100%',
-    color: 'white',
-    background: '#18121e',
-    padding: '6px',
-    height: '40px'
-  }
-})
-
-const Signup = () => <div>Signup</div>
+const Signup = () => <form className="signup_form">Signup</form>
 const Home = () => <div>Home</div>
-const NotFound = () => <div>NotFound</div>
+const NotFound = () => <div>Not Found</div>
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <div className="navbar">
-          
-          </div>
-
+          <nav className="uk-navbar-container navbar" uk-navbar>
+            <div className="uk-navbar-left">
+              <ul className="uk-navbar-nav">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/signup">Signup</Link></li>
+              </ul>
+            </div>
+          </nav>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={Signup} />
