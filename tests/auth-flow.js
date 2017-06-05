@@ -7,7 +7,7 @@ module.exports = {
       .click('a[href="/signup')
 
     client.assert.urlContains('signup')
-    client.assert.cssClassPresent("#form", "signup_form");
+    // client.assert.cssClassPresent("#form", "uk-form-stacked");
   },
 
   'signup user and redirect to dashboard': (client) => {
