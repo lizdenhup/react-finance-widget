@@ -8,7 +8,7 @@ import {
 import './styles/uikit.css'
 
 const Signup = () => <form className="signup_form">Signup</form>
-const Home = () => <div></div>
+const Home = () => <div>Home</div>
 const NotFound = () => <div>Not Found</div>
 
 class App extends Component {
