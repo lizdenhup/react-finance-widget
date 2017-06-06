@@ -25,10 +25,9 @@ class App extends Component {
             </div>
           </nav>
           <Switch>
-            <Route exact path="/" render={() => (
-            (<Welcome />))}/>
-            <Route exact path="/signup" render={() => ((<Signup />))} />
-            <Route render={() => ((<NotFound />))} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/signup" component={Signup} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>
