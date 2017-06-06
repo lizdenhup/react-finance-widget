@@ -5,7 +5,7 @@ import {
   Switch,
   Link
 } from 'react-router-dom'
-import './styles/uikit.css'
+
 
 const Home = () => <div>Home</div>
 const NotFound = () => <div>Not Found</div>
