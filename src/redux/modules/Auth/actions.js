@@ -34,6 +34,7 @@ export const signup = (user, router) => {
          localStorage.setItem('token', JSON.stringify(token))
          dispatch(authSuccess(user))
          dispatch(reset('signup'))
+         router.history.replace('/dashboard')
        })
        .catch((error) => {
          console.log(error)
