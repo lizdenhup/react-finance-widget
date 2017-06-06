@@ -25,7 +25,7 @@ const authFailure = (errors) => {
 
 // Asynchronous function calls
 
-const signup = (user, router) => {
+export const signup = (user, router) => {
    return dispatch => {
      dispatch(authRequest())
      return ApiService.post('/users', user)

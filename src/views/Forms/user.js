@@ -27,7 +27,7 @@ class UserForm extends Component {
     }
   }
 
-  handleSubmit = (data) => this.props.onSubmit(data)
+  handleSubmit = data => this.props.onSubmit(data)
 
   handleChange(event) {
     if (event.target.name === 'email') {
@@ -40,6 +40,8 @@ class UserForm extends Component {
       })
     }
   }
+
+  //not working at the moment
 
   render() {
     const {handleSubmit} = this.props

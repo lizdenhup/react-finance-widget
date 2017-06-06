@@ -5,6 +5,7 @@ import {
   Switch,
   Link
 } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 // views
 import Welcome from '../views/Welcome'
@@ -38,4 +39,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated,
+    currentUser: state.auth.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(App);
