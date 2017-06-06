@@ -11,18 +11,17 @@ const headers =  {
 }
 
 const parseResponse = (response) => {
- return response.json()
-   .then(json) => {
-     if (!response.ok) {
-       return Promise.reject(json.errors)
-     }
+  return response.json()
+    .then(json => {
+      if (!response.ok) {
+        return Promise.reject(json.errors)
+      }
 
-     return json
-   }
+      return json
+    })
 }
 
 export default {
-  
   get(url) {
     return fetch(`${BASE_URL}${url}`, {
       method: 'GET',
@@ -35,7 +34,7 @@ export default {
     const body = JSON.stringify(data)
     return fetch(`${BASE_URL}${url}`, {
       method: 'POST',
-      headers: 'headers',
+      headers: headers,
       body: body
     })
     .then(parseResponse)
@@ -45,7 +44,7 @@ export default {
     const body = JSON.stringify(data)
     return fetch(`${BASE_URL}${url}`, {
       method: 'PATCH',
-      headers: 'headers',
+      headers: headers,
       body: body
     })
     .then(parseResponse)
@@ -54,7 +53,7 @@ export default {
   delete(url) {
     return fetch(`${BASE_URL}${url}`, {
       method: 'DELETE',
-      headers: 'headers'
+      headers: headers
     })
     .then(parseResponse)
   }
