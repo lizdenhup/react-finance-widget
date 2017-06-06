@@ -9,13 +9,7 @@ import {
 // views
 import Welcome from '../views/Welcome'
 import Signup from '../views/Signup'
-
-
-
-const Home = () => <div>Home</div>
-const NotFound = () => <div>Not Found</div>
-
-
+import NotFound from '../views/NotFound'
 
 class App extends Component {
   render() {
@@ -34,7 +28,7 @@ class App extends Component {
             <Route exact path="/" render={() => (
             (<Welcome />))}/>
             <Route exact path="/signup" render={() => ((<Signup />))} />
-            <Route component={NotFound} />
+            <Route render={() => ((<NotFound />))} />
           </Switch>
         </div>
       </Router>
