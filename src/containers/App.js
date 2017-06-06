@@ -6,6 +6,11 @@ import {
   Link
 } from 'react-router-dom'
 
+// views
+import Welcome from '../views/Welcome'
+
+
+
 
 const Home = () => <div>Home</div>
 const NotFound = () => <div>Not Found</div>
@@ -42,7 +47,8 @@ class App extends Component {
             </div>
           </nav>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={() => (
+            (<Welcome />))}/>
             <Route exact path="/signup" component={Signup} />
             <Route component={NotFound} />
           </Switch>
