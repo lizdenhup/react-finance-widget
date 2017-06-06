@@ -42,4 +42,9 @@ export const signup = (user, router) => {
        })
    }
 }
- 
+
+export const logout = (router) => {
+  localStorage.removeItem('token')
+  router.history.replace('/')
+  return { type: 'LOGOUT' }
+ }

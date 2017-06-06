@@ -27,6 +27,11 @@ class App extends Component {
                 <li><Link to="/login">Login</Link></li>
               </ul>
             </div>
+            <div className="uk-navbar-right">
+              <ul className="uk-navbar-nav">
+              <li><Link to="/logout">Logout</Link></li>
+              </ul>
+            </div>
           </nav>
           <Switch>
             <Route exact path="/" component={this.props.isAuthenticated ? Dashboard : Welcome} />
