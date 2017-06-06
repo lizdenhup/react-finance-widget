@@ -10,8 +10,9 @@ import { connect } from 'react-redux'
 // views
 import Welcome from '../views/Welcome'
 import Signup from '../views/Signup'
-import NotFound from '../views/NotFound'
 import Login from '../views/Login'
+import Dashboard from '../views/Dashboard'
+import NotFound from '../views/NotFound'
 
 class App extends Component {
   render() {
@@ -28,9 +29,10 @@ class App extends Component {
             </div>
           </nav>
           <Switch>
-            <Route exact path="/" component={Welcome} />
+            <Route exact path="/" component={this.props.isAuthenticated ? Dashboard : Welcome} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route component={NotFound} />
           </Switch>
         </div>
