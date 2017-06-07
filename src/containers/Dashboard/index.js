@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getStock } from '../../redux/modules/Stock/actions'
 import StockForm from '../../views/components/Forms/stock';
 
+class Dashboard extends Component {
 
-const Dashboard = (props) => 
+  makeStockRequest = data => this.props.youraction(data)
 
-<div className="uk-position-center">
-  <StockForm />
-</div>
+  render() {
+    return (
+      <div className="uk-position-center">
+        <StockForm onSubmit={this.props.makeStockRequest} />
+        {/* stock list component */}
+      </div>
+    );
+  }
+}
+  
 
-export default Dashboard 
+  // have this connect to stocks array in your state
+
+export default Dashboard;
 

@@ -55,6 +55,7 @@ export const login = (user, router) => {
         router.history.replace('/dashboard');
       })
       .catch((errors) => {
+        debugger;
         console.log(errors)
         dispatch(authFailure(errors))
       })
@@ -73,7 +74,7 @@ export const authenticate = () => {
       .catch((errors) => {
         console.log(errors)
         dispatch(authFailure(errors))
-        localStorage.remoteItem('token')
+        localStorage.removeItem('token')
       })
   }
 }

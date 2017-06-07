@@ -14,9 +14,6 @@ const stockRequestSuccess = (stock) => {
   }
 }
 
-// aync function calls
+// async function calls
 
-
-
-
-// GET stock
+// GET api/v1/search query: stock

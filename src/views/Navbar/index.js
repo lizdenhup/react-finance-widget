@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
-type Props = {
-  isAuthenticated: boolean,
-  logout: () => void 
-}
-
 class Navbar extends Component {
   constructor(props){
     super(props)
@@ -16,8 +11,6 @@ class Navbar extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
-
-  props: Props 
 
   handleLogout() {
     this.props.logout(this.context.router)
@@ -30,6 +23,7 @@ class Navbar extends Component {
           {
             this.props.isAuthenticated ?
             <ul className="uk-navbar-nav">
+              <li><NavLink to="/" >{this.props.currentUser.email}</NavLink></li>
               <li><NavLink to="/dashboard">My dashboard</NavLink></li>
               <li><NavLink to="/" onClick={this.handleLogout}>Log Out</NavLink></li>
             </ul>

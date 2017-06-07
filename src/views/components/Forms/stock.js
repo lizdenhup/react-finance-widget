@@ -22,7 +22,7 @@ class StockForm extends Component {
   }
   
   render() {
-    const {handleSubmit} = this.props
+    const { handleSubmit } = this.props
     return (
       <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
         <div className="uk-margin">
@@ -45,11 +45,13 @@ class StockForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { stockSymbol: state.stockSymbol }
+const validate = values => {
+  let errors  = {}
+  // custom validations go here
+  return errors 
 }
-
 
 export default reduxForm({
   form: 'stock',
+  validate
 })(StockForm);
