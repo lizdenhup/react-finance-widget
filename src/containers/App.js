@@ -16,12 +16,33 @@ import Login from '../views/Login'
 import Dashboard from '../views/Dashboard'
 import NotFound from '../views/NotFound'
 
+import { authenticate, authFailure } from '../redux/modules/Auth/actions'
+
+type Props = {
+  isAuthenticated: boolean,
+  logout: () => void,
+  authenticate: () => void,
+  authFailure: () => void
+}
+
 class App extends Component {
+
+  props: Props 
+
+  componentDidMount() {
+    const token = localStorage.getItem('token')
+    if (token) {
+      this.props.authenticate()
+    } else {
+      this.props.authFailure()
+    }
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
-          <Navbar isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} />
+          <Navbar isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} currentUser = {this.props.currentUser.email} />
           <Switch>
             <Route exact path="/" component={this.props.isAuthenticated ? Dashboard : Welcome} />
             <Route exact path="/signup" component={Signup} />
@@ -44,8 +65,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    logout: logout
+    logout,
+    authenticate,
+    authFailure
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, {logout, authenticate, authFailure})(App);

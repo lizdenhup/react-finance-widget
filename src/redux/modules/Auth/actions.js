@@ -69,7 +69,6 @@ export const authenticate = () => {
         const { user, token } = response;
         localStorage.setItem('token', JSON.stringify(token));
         dispatch(authSuccess(user))
-        router.history.replace('/dashboard');
       })
       .catch((errors) => {
         console.log(errors)
