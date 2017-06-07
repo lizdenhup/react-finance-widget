@@ -43,6 +43,24 @@ export const signup = (user, router) => {
    }
 }
 
+export const login = (user, router) => {
+  return dispatch => {
+    dispatch(authRequest());
+    return ApiService.post(`/auth`, user)
+      .then(response => {
+        const { user, token } = response;
+        localStorage.setItem('token', JSON.stringify(token));
+        dispatch(authSuccess(user))
+        dispatch(reset('login'));
+        router.history.replace('/dashboard');
+      })
+      .catch((errors) => {
+        console.log(errors)
+        dispatch(authFailure(errors))
+      })
+  }
+}
+
 export const logout = (router) => {
   localStorage.removeItem('token')
   router.history.replace('/')

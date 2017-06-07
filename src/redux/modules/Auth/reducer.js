@@ -1,7 +1,8 @@
 const initialState = {
    isAuthenticated: false,
    isAuthenticating: true,
-   currentUser: {}
+   currentUser: {},
+   errors: []
  }
  
 export default (state = initialState, action) => {
