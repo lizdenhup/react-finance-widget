@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar isAuthenticated={this.props.isAuthenticated} logout={this.props.logout}/>
+          <Navbar isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} />
           <Switch>
             <Route exact path="/" component={this.props.isAuthenticated ? Dashboard : Welcome} />
             <Route exact path="/signup" component={Signup} />
