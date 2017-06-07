@@ -25,19 +25,17 @@ class StockForm extends Component {
     const {handleSubmit} = this.props
     return (
       <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
-
         <div className="uk-margin">
-            <label className="uk-form-label" htmlFor="email">Email</label>
             <div className="uk-form-controls">
               <Field
-                name="email"
-                value={this.state.email}
+                name="stockSymbol"
+                value={this.state.stockSymbol}
                 onChange={this.handleChange.bind(this)}
                 className="uk-input uk-form-width-medium"
                 component="input"
-                id="email"
+                id="stockSymbol"
                 type="text"
-                placeholder="Email"
+                placeholder="Ticker symbol"
               />
             </div><br />
           <input type="submit" className="uk-button uk-button-default" value="Search for this stock" />

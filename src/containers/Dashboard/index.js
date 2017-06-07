@@ -7,10 +7,9 @@ import StockForm from '../../views/Forms/stock';
 
 const Dashboard = (props) => 
 <div>
-Dashboard
+  <br />
+  <StockForm />
 </div>
 
 export default Dashboard 
 
-
-//////
