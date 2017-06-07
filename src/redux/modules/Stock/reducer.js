@@ -14,19 +14,20 @@ export default (state = initialState, action) => {
 
     case 'STOCK_REQUEST_SUCCESS': 
       return {
-        ...state, 
+        isRequesting: false, 
         stocks: action.stocks 
       }
 
     case 'ADD_STOCK': 
       return {
-        ...state, 
-        stocks: state.stocks.concat(action.stock)
+        isRequesting: false, 
+        stocks: [...state.stocks, action.stock]
       }
 
     case 'REMOVE_STOCK': 
     const deleteIndex = state.stocks.findIndex(s => s.id === action.id)
       return {
+        isRequesting: false, 
         stocks: [
         ...state.stocks.slice(0, deleteIndex),
         ...state.stocks.slice(deleteIndex + 1)
