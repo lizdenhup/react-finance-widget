@@ -5,6 +5,7 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { logout } from '../redux/modules/Auth/actions';
 
@@ -21,7 +22,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar isAuthenticated={this.props.isAuthenticated} logout={logout}/>
+          <Navbar isAuthenticated={this.props.isAuthenticated} logout={this.props.logout}/>
           <Switch>
             <Route exact path="/" component={this.props.isAuthenticated ? Dashboard : Welcome} />
             <Route exact path="/signup" component={Signup} />
@@ -42,4 +43,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    logout: logout
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
