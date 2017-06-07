@@ -40,9 +40,7 @@ class UserForm extends Component {
       })
     }
   }
-
-  //not working at the moment
-
+  
   render() {
     const {handleSubmit} = this.props
     return (
