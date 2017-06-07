@@ -51,6 +51,7 @@ const mapStateToProps = (state) => {
   return { stockSymbol: state.stockSymbol }
 }
 
-StockForm = connect(mapStateToProps)(form(StockForm))
 
-export default StockForm
+export default reduxForm({
+  form: 'stock',
+})(StockForm);
