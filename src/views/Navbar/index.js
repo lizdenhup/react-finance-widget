@@ -30,7 +30,6 @@ class Navbar extends Component {
           {
             this.props.isAuthenticated ?
             <ul className="uk-navbar-nav">
-              <li>Hello {this.props.currentUser.email}</li>
               <li><NavLink to="/dashboard">My dashboard</NavLink></li>
               <li><NavLink to="/" onClick={this.handleLogout}>Log Out</NavLink></li>
             </ul>
