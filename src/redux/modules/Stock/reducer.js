@@ -1,5 +1,6 @@
 const initialState = {
   isRequesting: false,
+  stock: {},
   stocks: []
 }
 
@@ -15,7 +16,7 @@ export default (state = initialState, action) => {
     case 'STOCK_REQUEST_SUCCESS': 
       return {
         isRequesting: false, 
-        stocks: action.stocks 
+        stock: action.stocks 
       }
 
     case 'ADD_STOCK': 

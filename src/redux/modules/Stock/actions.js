@@ -9,11 +9,10 @@ const stockRequest = () => {
 
 const stockRequestSuccess = () => {
   return {
-    type: 'STOCK_REQUEST_SUCCESS',
-    stock: stock 
+    type: 'STOCK_REQUEST_SUCCESS'
+    //unsure how to put stock: stock here 
   }
 }
-
 
 // aync function calls
 // GET stock
