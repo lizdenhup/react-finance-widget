@@ -6,8 +6,8 @@ import StockForm from '../../views/Forms/stock';
 
 
 const Dashboard = (props) => 
-<div>
-  <br />
+
+<div className="uk-position-center">
   <StockForm />
 </div>
 
