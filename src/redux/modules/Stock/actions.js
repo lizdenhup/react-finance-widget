@@ -7,12 +7,16 @@ const stockRequest = () => {
   }
 }
 
-const stockRequestSuccess = () => {
+const stockRequestSuccess = (stock) => {
   return {
-    type: 'STOCK_REQUEST_SUCCESS'
-    //unsure how to put stock: stock here 
+    type: 'STOCK_REQUEST_SUCCESS',
+    stock: stock 
   }
 }
 
 // aync function calls
+
+
+
+
 // GET stock
