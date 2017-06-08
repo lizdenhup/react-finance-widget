@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { search } from '../../redux/modules/Stock/actions';
-import StockForm from '../../views/components/Forms/stock';
+import StockForm from '../components/Forms/stock';
 
 class Search extends Component {
 
