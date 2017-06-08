@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import DATA from '../../redux/modules/Stock/data'
+import DATA from '../../redux/modules/Stock/data';
+
 class StockWidget extends Component {
   render() {
     return (
       <div> 
         <p>Here is some data. Hooray</p>
-        `${DATA[0]["Meta Data"]}`
-      
+        
       </div>
     );
   }
