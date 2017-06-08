@@ -4,12 +4,14 @@ class StockWidget extends Component {
   render() {
     return (
       <div> 
-        {/* render some tables or charts of stocks whose data is fetched in the stock container */}
+        <p>Here is some data. Hooray</p>
+        `${DATA[0]["Meta Data"]}`
+      
       </div>
     );
   }
 }
-  
+  //apparently objects cannot be react children
   // have this connect to stocks array in your state
 
 export default StockWidget;
