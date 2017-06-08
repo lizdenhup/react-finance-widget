@@ -18,7 +18,7 @@ const stockRequestSuccess = (stock) => {
 export const search = (stockSymbol) => {
   return dispatch => {
     dispatch(stockRequest());
-    return ApiService.gett(`/search?query=${stockSymbol}`)
+    return ApiService.get(`/search?query=${stockSymbol}`)
       .then(response => {
         const { result } = response 
         dispatch(stockRequestSuccess(stockSymbol))
