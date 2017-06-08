@@ -34,7 +34,6 @@ export default (state = initialState, action) => {
         ...state.stocks.slice(deleteIndex + 1)
         ]
       }
-
     default: 
       return state;
   }

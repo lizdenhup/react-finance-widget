@@ -13,7 +13,7 @@ class StockWidgetContainer extends Component {
 
 export default connect(
   state => ({
-    stock: state.stocks,
+    
     currentUser: state.auth.currentUser
   }), {
     search
