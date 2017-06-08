@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { search } from '../../redux/modules/Stock/actions';
 import StockForm from '../../views/components/Forms/stock';
 
 class Search extends Component {
@@ -15,4 +17,4 @@ class Search extends Component {
   }
 }
 
-export default Search; 
+export default connect(null, { search })(Search); 

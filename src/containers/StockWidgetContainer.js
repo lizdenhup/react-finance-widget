@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { search } from '../redux/modules/Stock/actions'
+
 class StockWidgetContainer extends Component {
 
   render() {
@@ -9,4 +11,4 @@ class StockWidgetContainer extends Component {
   }
 }
 
-
+export default connect(null, { search })(StockWidgetContainer)
