@@ -5,12 +5,12 @@ import StockForm from '../../views/components/Forms/stock';
 
 class Search extends Component {
 
-  makeStockRequest = data => this.props.youraction(data)
+  makeStockRequest = data => this.props.search({stockSymbol: data})
 
   render() {
     return (
       <div className="uk-position-center">
-        <StockForm onSubmit={this.props.makeStockRequest} />
+        <StockForm action="search" onSubmit={this.props.makeStockRequest} />
         {/* stock list component */}
       </div>
     );
