@@ -1,7 +1,6 @@
 /* (truncated) compact time series data for Nike on 6/8/17 */
 
 const DATA = 
-[
     {
         "Meta Data": {
             "1. Information": "Daily Prices (open, high, low, close) and Volumes",
@@ -48,6 +47,5 @@ const DATA =
             }    
         }
     }
-]
 
 export default DATA; 
