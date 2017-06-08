@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import StockWidget from '../StockWidget';
 
 class Dashboard extends Component {
   render() {
     return (
       <div> 
+        <StockWidget /> 
         {/* put StockWidget component here */}
       </div>
     );
