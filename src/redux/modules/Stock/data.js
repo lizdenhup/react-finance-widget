@@ -1,4 +1,5 @@
 /* compact time series data for Nike on 6/8/17 */
+
 const DATA = 
 [
     {
