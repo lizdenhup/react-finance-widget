@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DATA from '../../redux/modules/Stock/data'
 class StockWidget extends Component {
   render() {
     return (
