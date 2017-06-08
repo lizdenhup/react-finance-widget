@@ -4,7 +4,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div> 
-        {/* render some tables or charts of a predefined set of stocks */}
+        {/* put StockWidget component here */}
       </div>
     );
   }
