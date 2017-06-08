@@ -23,6 +23,7 @@ export const search = (stockSymbol) => {
       .then(response => {
         const { result } = response 
         dispatch(stockRequestSuccess(stockSymbol))
+        dispatch(reset('search'))
       })
       .catch((errors) => {
         console.log(errors)
