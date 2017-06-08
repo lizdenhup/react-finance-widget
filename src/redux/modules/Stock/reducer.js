@@ -1,7 +1,7 @@
 const initialState = {
   isRequesting: false,
   stock: {},
-  stocks: []
+  stocks: ['FB', 'AMZN', 'NFLX', 'GOOGL', 'AAPL']
 }
 
 export default (state = initialState, action) => {
