@@ -15,6 +15,7 @@ import Signup from '../views/Signup'
 import Login from '../views/Login'
 import Dashboard from './Dashboard'
 import NotFound from '../views/NotFound'
+import Search from '../views/Search'
 
 import { authenticate, authFailure } from '../redux/modules/Auth/actions'
 
