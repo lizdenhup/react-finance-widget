@@ -13,7 +13,7 @@ import Navbar from '../views/Navbar'
 import Welcome from '../views/Welcome'
 import Signup from '../views/Signup'
 import Login from '../views/Login'
-import Dashboard from './Dashboard'
+import Dashboard from '../views/Dashboard'
 import NotFound from '../views/NotFound'
 import Search from '../views/Search'
 
