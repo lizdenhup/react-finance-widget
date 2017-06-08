@@ -10,8 +10,7 @@ class Search extends Component {
   render() {
     return (
       <div className="uk-position-center">
-        <StockForm action="search" onSubmit={this.props.makeStockRequest} />
-        {/* stock list component */}
+        <StockForm action="search" onSubmit={this.makeStockRequest} />
       </div>
     );
   }
