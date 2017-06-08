@@ -6,9 +6,16 @@ class StockWidgetContainer extends Component {
 
   render() {
     return (
-
+        < StockForm />
     )
   }
 }
 
-export default connect(null, { search })(StockWidgetContainer)
+export default connect(
+  state => ({
+    stock: state.stocks,
+    currentUser: state.auth.currentUser
+  }), {
+    search
+  }
+)(StockWidgetContainer);
