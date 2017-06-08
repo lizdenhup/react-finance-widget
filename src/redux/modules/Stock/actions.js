@@ -15,5 +15,16 @@ const stockRequestSuccess = (stock) => {
 }
 
 // async function calls
-
-// GET api/v1/search query: stock
+export const search = (stockSymbol) => {
+  return dispatch => {
+    dispatch(stockRequest());
+    return ApiService.gett(`/search?query=${stockSymbol}`)
+      .then(response => {
+        const { result } = response 
+        dispatch(stockRequestSuccess(stockSymbol))
+      })
+      .catch((errors) => {
+        console.log(errors)
+      })
+  }
+}
