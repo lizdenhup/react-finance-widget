@@ -9,7 +9,7 @@ import auth from '../modules/Auth/reducer';
 import stock from '../modules/Stock/reducer';
 
 const reducers = combineReducers({
-  form,
+  form, 
   auth, 
   stock
 })

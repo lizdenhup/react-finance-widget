@@ -48,4 +48,24 @@ const DATA =
         }
     }
 
+    /* 
+    // Playing around to see how to best extract the data from the deeply
+    nested object: 
+    
+    let enumerableKeys = [];
+    for (let key in stockData['Time Series (Daily)']) {
+        enumerableKeys.push(key);
+    }
+    enumerableKeys 
+    => is an array of dates
+    ["2017-06-08 16:00:00", "2017-06-07", "2017-06-06", "2017-06-05", "2017-06-02"]
+
+    dailyDataPoints = [];
+    for (let dailyData of Object.values(stockData['Time Series (Daily)])) {
+        console.log(dailyData)
+    }
+    => outputs n objects of the form:
+    {1. open: "53.5400", 2. high: "54.1400", 3. low: "53.1500", 4. close: "53.1900", 5. volume: "6178115"}
+    where n is the number of days in the time series
+    */
 export default DATA; 
