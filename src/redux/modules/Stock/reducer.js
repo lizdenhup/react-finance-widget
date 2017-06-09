@@ -1,7 +1,8 @@
+import DATA from './data';
+
 const initialState = {
   isRequesting: false,
-  stock: {},
-  stocks: ['FB', 'AMZN', 'NFLX', 'GOOGL', 'AAPL']
+  stock: DATA
 }
 
 export default (state = initialState, action) => {
