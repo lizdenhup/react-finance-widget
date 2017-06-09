@@ -1,4 +1,11 @@
 /* (truncated) compact time series data for Nike on 6/8/17 */
+// var ticker = DATA['Meta Data']['2. Symbol']
+// var date = Object.keys(DATA['Time Series (Daily)'])[0]
+// var openingPrice = Object.values(DATA['Time Series (Daily)'])[0]['1. open']
+// var high = Object.values(DATA['Time Series (Daily)'])[0]['2. high']
+// var low = Object.values(DATA['Time Series (Daily)'])[0]['3. low']
+// var closingPrice = Object.values(DATA['Time Series (Daily)'])[0]['4. close']
+
 const DATA = 
     {
         "Meta Data": {
@@ -45,14 +52,12 @@ const DATA =
             "5. volume": "18511069"
             }    
         }
-    }
+}
 
-const ticker = DATA['Meta Data']['2. Symbol']
-const date = Object.keys(DATA['Time Series (Daily)'])[0]
-const openingPrice = Object.values(DATA['Time Series (Daily)'])[0]['1. open']
-const high = Object.values(DATA['Time Series (Daily)'])[0]['2. high']
-const low = Object.values(DATA['Time Series (Daily)'])[0]['3. low']
-const closingPrice = Object.values(DATA['Time Series (Daily)'])[0]['4. close']
+
+
+
+
 
 
     /* 
