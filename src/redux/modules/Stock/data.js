@@ -1,5 +1,4 @@
 /* (truncated) compact time series data for Nike on 6/8/17 */
-
 const DATA = 
     {
         "Meta Data": {
@@ -48,24 +47,45 @@ const DATA =
         }
     }
 
+const ticker = DATA['Meta Data']['2. Symbol']
+const date = Object.keys(DATA['Time Series (Daily)'])[0]
+const openingPrice = Object.values(DATA['Time Series (Daily)'])[0]['1. open']
+const high = Object.values(DATA['Time Series (Daily)'])[0]['2. high']
+const low = Object.values(DATA['Time Series (Daily)'])[0]['3. low']
+const closingPrice = Object.values(DATA['Time Series (Daily)'])[0]['4. close']
+
+
     /* 
     // Playing around to see how to best extract the data from the deeply
     nested object: 
-    
-    let enumerableKeys = [];
-    for (let key in stockData['Time Series (Daily)']) {
-        enumerableKeys.push(key);
-    }
-    enumerableKeys 
-    => is an array of dates
-    ["2017-06-08 16:00:00", "2017-06-07", "2017-06-06", "2017-06-05", "2017-06-02"]
+    ///First step: simply return that day's data in a table component:
+    const ticker = DATA['Meta Data']['2. Symbol']
+    const date = Object.key(DATA['Time Series (Daily)'])[0]
+    const openingPrice = Object.values(DATA['Time Series (Daily)'])[0]['1. open']
+    const high = Object.values(DATA['Time Series (Daily)'])[0]['2. high']
+    const openingPrice = Object.values(DATA['Time Series (Daily)'])[0]['3. low']
+    const closingPrice = Object.values(DATA['Time Series (Daily)'])[0]['4. close']
 
-    dailyDataPoints = [];
-    for (let dailyData of Object.values(stockData['Time Series (Daily)])) {
-        console.log(dailyData)
-    }
-    => outputs n objects of the form:
-    {1. open: "53.5400", 2. high: "54.1400", 3. low: "53.1500", 4. close: "53.1900", 5. volume: "6178115"}
-    where n is the number of days in the time series
+
+
+
+    /////////
+    Procedure for cleaning up timeSeries data from AV:
+    1. Extract dates
+        tradingDates = [];
+        for (let key in stockData['Time Series (Daily)']) {
+            tradingDates.push(key);
+        }
+        => now the array looks like this:
+        [ 'date',
+        ...,
+        'lastDate']
+    2. Extract dailyOpen prices
+        dailyOpen = [];
+        for (let dailyData of Object.values(stockData['Time Series (Daily)'])) {
+            console.log(dailyData['1. open']);
+            dailyOpen.push(dailyData['1. open']);
+        }
+        timeSeriesData = [tradingDates[i], dailyOpen[i]]
     */
 export default DATA; 
