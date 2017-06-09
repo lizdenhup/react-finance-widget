@@ -5,7 +5,6 @@ class StockWidget extends Component {
   render() {
     return (
       <div> 
-        <p>Here is some data. Hooray</p>
         
       </div>
     );
