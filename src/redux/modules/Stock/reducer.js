@@ -2,6 +2,7 @@
 
 const initialState = {
   isRequesting: false,
+  stocks: ['AAPL', 'AMZN', 'GOOGL'],
   stock: {}
 }
 
@@ -16,8 +17,8 @@ export default (state = initialState, action) => {
 
     case 'STOCK_REQUEST_SUCCESS': 
       return {
-        isRequesting: false, 
-        stock: action.stock
+        ...state, 
+        isRequesting: false,
       }
 
     case 'ADD_STOCK': 
