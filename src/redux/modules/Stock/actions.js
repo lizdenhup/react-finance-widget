@@ -2,13 +2,13 @@ import ApiService from '../../services/ApiService';
 import { reset } from 'redux-form';
 
 //actions
-const stockRequest = () => {
+export const stockRequest = () => {
   return {
     type: 'STOCK_REQUEST'
   }
 }
 
-const stockRequestSuccess = (stock) => {
+export const stockRequestSuccess = (stock) => {
   return {
     type: 'STOCK_REQUEST_SUCCESS',
     stock: stock 
