@@ -11,6 +11,8 @@ class Search extends Component {
     return (
       <div className="uk-position-center">
         <StockForm action="search" onSubmit={this.makeStockRequest} />
+      <p>Here is the result:</p>
+
       </div>
     );
   }
