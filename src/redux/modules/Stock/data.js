@@ -6,6 +6,13 @@
 // var low = Object.values(DATA['Time Series (Daily)'])[0]['3. low']
 // var closingPrice = Object.values(DATA['Time Series (Daily)'])[0]['4. close']
 
+
+const sampleData = [
+  {d1: 'Data', d2: 'Data', d3: 'Data'},
+  {d1: 'Data', d2: 'Data', d3: 'Data'},
+  {d1: 'Data', d2: 'Data', d3: 'Data'}
+];
+
 const DATA = 
     {
         "Meta Data": {
@@ -93,4 +100,5 @@ const DATA =
         }
         timeSeriesData = [tradingDates[i], dailyOpen[i]]
     */
-export default DATA; 
+// export default DATA; 
+export default sampleData; 
