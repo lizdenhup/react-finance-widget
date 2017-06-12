@@ -22,7 +22,7 @@ export const search = (stockSymbol) => {
     return ApiService.get(`/search?query=${stockSymbol}`)
       .then(response => {
         const { result } = response 
-        dispatch(stockRequestSuccess(stockSymbol))
+        dispatch(stockRequestSuccess(result))
         dispatch(reset('search'))
       })
       .catch((errors) => {
