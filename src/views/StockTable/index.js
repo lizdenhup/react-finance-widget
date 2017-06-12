@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import DATA from '../../redux/modules/Stock/data';
+// import DATA from '../../redux/modules/Stock/data';
+
 
 class StockWidget extends Component {
   render() {
     return (
       <div> 
-        <table class="uk-table uk-width-1-1">
+        {/*<table class="uk-table uk-width-1-1">
             <caption>Data for {DATA['Meta Data']['2. Symbol']} as of {Object.keys(DATA['Time Series (Daily)'])[0]}</caption>
             <thead>
                 <tr>
@@ -25,7 +26,7 @@ class StockWidget extends Component {
                     <td class="uk-width-1-1 uk-text-right">{Object.values(DATA['Time Series (Daily)'])[0]['5. volume']}</td>
                 </tr>
             </tbody>
-        </table>
+        </table>*/}
       </div>
     );
   }
