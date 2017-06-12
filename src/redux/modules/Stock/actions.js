@@ -16,6 +16,18 @@ export const stockRequestSuccess = (stock) => {
 }
 
 // async function calls
+
+export const fetchStock = (stock) => {
+  return dispatch => {
+    dispatch(stockRequest());
+    return ApiService.get(`/search?query=${stock}`)
+    .then(response => {
+      const { result } = response
+      dispatch(stockRequestSuccess(stock))
+    })
+  }
+}
+
 export const search = (stockSymbol) => {
   return dispatch => {
     dispatch(stockRequest());
