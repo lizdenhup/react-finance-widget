@@ -8,9 +8,9 @@
 
 
 const sampleData = [
-  {d1: 'Data', d2: 'Data', d3: 'Data'},
-  {d1: 'Data', d2: 'Data', d3: 'Data'},
-  {d1: 'Data', d2: 'Data', d3: 'Data'}
+  {d1: 'Data', d2: 'Data', d3: 'Data', d4: 'Data', d5: 'Data'},
+  {d1: 'Data', d2: 'Data', d3: 'Data', d4: 'Data', d5: 'Data'},
+  {d1: 'Data', d2: 'Data', d3: 'Data', d4: 'Data', d5: 'Data'}
 ];
 
 const DATA = 

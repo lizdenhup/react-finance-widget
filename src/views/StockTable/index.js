@@ -7,7 +7,7 @@ class StockTable extends Component {
     return (
       <div> 
 
-        <Table caption='Generated table.' head={['Heading', 'Heading', 'Heading']} body={sampleData}/>
+        <Table caption='Generated table.' head={['Open', 'High', 'Low', 'Close', 'Volume']} body={sampleData}/>
       </div>
     );
   }
