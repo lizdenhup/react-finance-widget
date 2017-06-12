@@ -1,8 +1,8 @@
-import DATA from './data';
+// import DATA from './data';
 
 const initialState = {
   isRequesting: false,
-  stock: DATA
+  stock: {}
 }
 
 export default (state = initialState, action) => {
@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
     case 'STOCK_REQUEST_SUCCESS': 
       return {
         isRequesting: false, 
-        stock: action.stocks 
+        stock: action.stock
       }
 
     case 'ADD_STOCK': 
