@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StockTable from '../StockTable';
 import { connect } from 'react-redux';
-import { stockRequest, stockRequestSuccess, search } from '../../redux/modules/Stock/actions'
+import { stockRequest, stockRequestSuccess, search, fetchStock } from '../../redux/modules/Stock/actions'
 
 class Dashboard extends Component {
 
