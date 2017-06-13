@@ -55,7 +55,7 @@ export const login = (user, router) => {
         router.history.replace('/dashboard');
       })
       .catch((errors) => {
-        debugger;
+        // debugger;
         console.log(errors)
         dispatch(authFailure(errors))
       })

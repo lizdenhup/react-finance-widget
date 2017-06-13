@@ -4,19 +4,22 @@ import { connect } from 'react-redux';
 
 class Dashboard extends Component {
 
-  render() {
-      return(
-        <div className="uk-position-center">
-
-        </div>
-      )
+    componentDidMount() {
+       this.props.get_stock()
     }
-  }
 
-const mapStateToProps = (state) => {
-  return {
+    render() {
+        return (
+            <div className="uk-position-center">
+               
+            </div>
+            )
+        }
+    }
+
+export default connect(
+  state => ({
     stocks: state.stocks
-  }
-}
-
-export default connect(mapStateToProps, { get_stock })(Dashboard);
+  })
+  , { get_stock }
+)(Dashboard);

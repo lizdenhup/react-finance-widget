@@ -31,12 +31,12 @@ export const getStockRejected = () => {
 
 export function get_stock() {  
   const action_type = "GET_STOCK";
-
+  const stock = 'AAPL';
   return dispatch => {
     // Dispatch the action for telling our reducer 
     // that the API call is in progress
     dispatch({type: `${action_type}_PENDING`});
-    ApiService.get(`/search?query=AMZN`)
+    ApiService.get(`/search?query=${stock}`)
       .then(resp => {
         // Dispatch the success action with the payload
         dispatch({
