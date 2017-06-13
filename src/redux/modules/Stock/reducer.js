@@ -1,40 +1,31 @@
-// import DATA from './data';
-
 const initialState = {
-  isRequesting: false,
-  stocks: ['AAPL', 'AMZN', 'GOOGL'],
-  stock: {}
+  inProgress: false,
+  stocks: [],
+  error: null 
 }
 
 export default (state = initialState, action) => {
   switch(action.type) {
 
-    case 'STOCK_REQUEST':
-      return {
-        ...state,
-        isRequesting: true 
-      }
-
-    case 'STOCK_REQUEST_SUCCESS': 
+    case 'GET_STOCK_PENDING': 
       return {
         ...state, 
-        isRequesting: false,
+        inProgress: true,
+        error: false
       }
 
-    case 'ADD_STOCK': 
+    case 'GET_STOCK_FULFILLED': 
       return {
-        isRequesting: false, 
-        stocks: [...state.stocks, action.stock]
+        ...state,
+        stocks: action.payload,
+        inProgress: false
       }
 
-    case 'REMOVE_STOCK': 
-    const deleteIndex = state.stocks.findIndex(s => s.id === action.id)
+    case 'GET_STOCK_REJECTED': 
       return {
-        isRequesting: false, 
-        stocks: [
-        ...state.stocks.slice(0, deleteIndex),
-        ...state.stocks.slice(deleteIndex + 1)
-        ]
+        ...state,
+        inProgress: false,
+        error: action.error
       }
     default: 
       return state;
