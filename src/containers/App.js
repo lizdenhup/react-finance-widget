@@ -18,7 +18,6 @@ import NotFound from '../views/NotFound'
 import Search from '../views/Search'
 
 import { authenticate, authFailure } from '../redux/modules/Auth/actions'
-import { getStock } from '../../redux/modules/Stock/actions';
 
 class App extends Component {
 
@@ -30,7 +29,7 @@ class App extends Component {
       this.props.authFailure()
     }
   }
-
+  
   render() {
     return (
       <Router>
@@ -57,7 +56,8 @@ class App extends Component {
 export default connect(
   state => ({
     isAuthenticated: state.auth.isAuthenticated,
-    currentUser: state.auth.currentUser
+    currentUser: state.auth.currentUser,
+    stocks: state.stocks 
   }), {
     logout,
     authenticate,

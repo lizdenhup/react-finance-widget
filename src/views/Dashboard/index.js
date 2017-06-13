@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { get_stock } from '../../redux/modules/Stock/actions';
+import { connect } from 'react-redux';
 
-const  Dashboard = () =>
-    <div className="uk-position-center">
-        <h2>In progresss...</h2>
-    </div>
+class Dashboard extends Component {
 
-export default Dashboard
+  render() {
+      return(
+        <div className="uk-position-center">
+
+        </div>
+      )
+    }
+  }
+
+const mapStateToProps = (state) => {
+  return {
+    stocks: state.stocks
+  }
+}
+
+export default connect(mapStateToProps, { get_stock })(Dashboard);

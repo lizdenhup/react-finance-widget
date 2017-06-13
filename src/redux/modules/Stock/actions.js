@@ -1,5 +1,5 @@
 import ApiService from '../../services/ApiService';
-import { reset } from 'redux-form';
+// import { reset } from 'redux-form';
 
 //actions
 export const getStock = () => {
@@ -31,6 +31,7 @@ export const getStockRejected = () => {
 
 export function get_stock() {  
   const action_type = "GET_STOCK";
+
   return dispatch => {
     // Dispatch the action for telling our reducer 
     // that the API call is in progress
