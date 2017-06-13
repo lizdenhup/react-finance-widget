@@ -4,14 +4,18 @@ import { connect } from 'react-redux';
 
 class Dashboard extends Component {
 
-  render() {
-      return(
-        <div className="uk-position-center">
+    // componentDidMount() {
+    //     dispatch(get_stock())
+    // }
 
-        </div>
-      )
+    render() {
+        return (
+            <div className="uk-position-center">
+
+            </div>
+            )
+        }
     }
-  }
 
 const mapStateToProps = (state) => {
   return {
@@ -19,4 +23,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { get_stock })(Dashboard);
+const mapDispatchToProps = dispatch => {
+    return {
+        getStock: () => dispatch({
+            type: 'GET_STOCK'
+        })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
