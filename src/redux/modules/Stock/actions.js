@@ -1,5 +1,5 @@
 import ApiService from '../../services/ApiService';
-// import { reset } from 'redux-form';
+import { reset } from 'redux-form';
 
 //actions
 export const getStock = () => {
@@ -36,11 +36,7 @@ export function get_stock() {
     // Dispatch the action for telling our reducer 
     // that the API call is in progress
     dispatch({type: `${action_type}_PENDING`});
-<<<<<<< HEAD
-    ApiService.get(`/search?query=AAPL`)
-=======
     ApiService.get(`/search?query=${stock}`)
->>>>>>> 02fe32b326dbab3c7a221856135e25a3d481f57c
       .then(resp => {
         // Dispatch the success action with the payload
         dispatch({
