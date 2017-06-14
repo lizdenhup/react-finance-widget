@@ -2,7 +2,7 @@ const initialState = {
   inProgress: false,
   stock: {},
   stocks: ['NKE', 'AMZN', 'AAPL'],
-  error: null 
+  error: {}
 }
 
 export default (state = initialState, action) => {

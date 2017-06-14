@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { get_stock } from '../../redux/modules/Stock/actions';
+import { fetchStocksWithRedux } from '../../redux/modules/Stock/actions';
 import { connect } from 'react-redux';
 
 class Dashboard extends Component {
 
     componentDidMount() {
-       this.props.get_stock()
+       this.props.fetchStocksWithRedux()
     }
 
     render() {
@@ -19,7 +19,8 @@ class Dashboard extends Component {
 
 export default connect(
   state => ({
-    stocks: state.stocks
+    stocks: state.stocks,
+    stock: state.stock
   })
-  , { get_stock }
+  , { fetchStocksWithRedux }
 )(Dashboard);
