@@ -37,6 +37,24 @@ export default {
       body: body
     })
     .then(parseResponse)
+  },
+  
+  patch(url, data ={}) {
+    const body = JSON.stringify(data)
+    return fetch(`${BASE_URL}${url}`, {
+      method: 'PATCH',
+      headers: headers,
+      body: body
+    })
+    .then(parseResponse)
+  },
+
+  delete(url) {
+    return fetch(`${BASE_URL}${url}`, {
+      method: 'DELETE',
+      headers: headers
+    })
+    .then(parseResponse)
   }
 
 }
