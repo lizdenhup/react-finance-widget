@@ -11,7 +11,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="uk-position-center">
-               
+             
             </div>
             )
         }
