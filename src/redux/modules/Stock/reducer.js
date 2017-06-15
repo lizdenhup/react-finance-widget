@@ -1,6 +1,5 @@
 const initialState = {
   inProgress: false,
-  stock: {},
   stocks: ['NKE', 'AMZN', 'AAPL'],
   stockData: {},
   error: {}
@@ -19,7 +18,7 @@ export default (state = initialState, action) => {
     case 'GET_STOCK_FULFILLED': 
       return {
         ...state,
-        stock: action.payload,
+        stockData: action.payload,
         inProgress: false
       }
 
