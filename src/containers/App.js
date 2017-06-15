@@ -18,6 +18,7 @@ import NotFound from '../views/NotFound'
 import Search from '../views/Search'
 
 import { authenticate, authFailure } from '../redux/modules/Auth/actions'
+import { fetchStocksWithRedux } from '../redux/modules/Stock/actions'
 
 class App extends Component {
 
@@ -57,11 +58,13 @@ export default connect(
   state => ({
     isAuthenticated: state.auth.isAuthenticated,
     currentUser: state.auth.currentUser,
-    stocks: state.stocks 
+    stocks: state.stocks,
+    stockData: state.stockData 
   }), {
     logout,
     authenticate,
-    authFailure
+    authFailure,
+    fetchStocksWithRedux
   }
 )(App);
 

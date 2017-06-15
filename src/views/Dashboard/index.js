@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 
 class Dashboard extends Component {
 
-    componentDidMount() {
-       this.props.fetchStocksWithRedux()
-    }
+    // componentDidMount() {
+    //    this.props.fetchStocksWithRedux()
+    // }
 
     render() {
         return (
             <div className="uk-position-center">
-             
+
             </div>
             )
         }

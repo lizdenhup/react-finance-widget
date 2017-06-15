@@ -2,6 +2,7 @@ const initialState = {
   inProgress: false,
   stock: {},
   stocks: ['NKE', 'AMZN', 'AAPL'],
+  stockData: {},
   error: {}
 }
 
