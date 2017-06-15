@@ -35,9 +35,9 @@ export function fetchStocksWithRedux() {
     return (dispatch) => {
     dispatch({type: `${action_type}_PENDING`});
     return ApiService.get(`/search?query=${stock}`)
-    .then(([response, json]) =>{
+    .then((response) =>{
         if(response.status === 200){
-        dispatch(getStockFulfilled(json))
+        dispatch(getStockFulfilled(response.json))
       }
       else{
         dispatch(getStockRejected())
@@ -45,7 +45,3 @@ export function fetchStocksWithRedux() {
     })
   }
 }
-
-
-
-
