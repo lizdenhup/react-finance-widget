@@ -58,8 +58,7 @@ export default connect(
   state => ({
     isAuthenticated: state.auth.isAuthenticated,
     currentUser: state.auth.currentUser,
-    stocks: state.stocks,
-    stockData: state.stockData 
+    stocks: state.stock.stocks
   }), {
     logout,
     authenticate,
