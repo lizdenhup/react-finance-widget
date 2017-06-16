@@ -32,6 +32,7 @@ class App extends Component {
   }
   
   render() {
+    console.log(stockData)
     const { stockData, inProgress } = this.props 
     console.log(this.props)
     return (

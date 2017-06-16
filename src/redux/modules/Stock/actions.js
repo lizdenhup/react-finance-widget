@@ -34,15 +34,14 @@ export function fetchStocksWithRedux() {
   const stock = 'AAPL';
     return (dispatch) => {
       console.log('called!')
-    dispatch({type: `${action_type}_PENDING`});
+    dispatch({type: 'GET_STOCK_PENDING'});
     return ApiService.get(`/search?query=${stock}`)
     .then((response) =>{
-      //at this point the response is the data object desired. it is called 'response' and not stockData 
-      console.log('here is the response')
-      console.log(response)
-      debugger 
-        const stockData = response 
-        dispatch(getStockFulfilled(stockData))
+      //at this point the response is the data object desired. it is called 'response' and not stockData \
+      const stockData = response 
+      // console.log('here is the response')
+      // console.log(response)
+      dispatch(getStockFulfilled(stockData))
     })
   }
 }
