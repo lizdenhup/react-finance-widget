@@ -32,6 +32,8 @@ class App extends Component {
   }
   
   render() {
+    const { stockData, inProgress } = this.props 
+    console.log(this.props)
     return (
       <Router>
         <div className="App">

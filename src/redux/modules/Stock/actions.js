@@ -33,15 +33,46 @@ export function fetchStocksWithRedux() {
   const action_type = "GET_STOCK";
   const stock = 'AAPL';
     return (dispatch) => {
+      console.log('called!')
     dispatch({type: `${action_type}_PENDING`});
     return ApiService.get(`/search?query=${stock}`)
     .then((response) =>{
-        if(response.status === 200){
-        dispatch(getStockFulfilled(response.json))
-      }
-      else{
-        dispatch(getStockRejected())
-      }
+      //at this point the response is the data object desired. it is called 'response' and not stockData 
+      console.log('here is the response')
+      console.log(response)
+      debugger 
+        const stockData = response 
+        dispatch(getStockFulfilled(stockData))
     })
   }
 }
+
+
+// export function fetchStocksWithRedux() {
+//   console.log('called!');
+//   const stock = 'AMZN';
+//   return function(dispatch) {
+//     return dispatch({
+//       type: 'GET_STOCK_PENDING',
+//       payload: ApiService.get(`/search?query=${stock}`)
+//         .then((response) => {
+//           dispatch(fetchStockFulfilled(response))
+//         })
+//         .catch((err) => {
+//           dispatch(fetchStocksError(err))
+//         })
+//     });
+//   };
+// }
+
+// function fetchStocksError(err){
+//   return "An error has occured";
+//   console.log(err)
+// }
+
+// function fetchStockFulfilled(response) {
+//   return {
+//     type: 'FETCH_STOCK_FULFILLED',
+//     payload: response
+//   };
+// }
