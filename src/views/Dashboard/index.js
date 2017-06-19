@@ -12,10 +12,7 @@ class Dashboard extends Component {
 
     render() {
         const stockObj = [Object.values(this.props.stockData)[1]][0]
-        var todaysData = []
-        // for (var date in stockObj) {
-        //     console.log(`${date} = ${stockObj[date]['1. open']}`);
-        // }       
+        var todaysData = []   
         for (var date in stockObj) {
             todaysData.push(`${stockObj[date]['1. open']}`);
             todaysData.push(`${stockObj[date]['2. high']}`);
@@ -24,11 +21,10 @@ class Dashboard extends Component {
             todaysData.push(`${stockObj[date]['5. volume']}`);
             break;
         }    
-        console.log(todaysData)
-
+        const tableData = [{d1: todaysData[0], d2: todaysData[1], d3: todaysData[2], d4: todaysData[3], d5: todaysData[4]}]
         return (
             <div className="uk-position-center">
-            <Table caption="Today's Stock Data for AAPL" head={['Open', 'High', 'Low', 'Close', 'Volume']}/>
+            <Table caption="Today's Stock Data for AAPL" head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
             </div>
             )
         }
