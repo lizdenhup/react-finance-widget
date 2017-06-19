@@ -11,8 +11,17 @@ class Dashboard extends Component {
     }
 
     render() {
-        // const stockObj = [Object.values(this.props.stockData)[1]][0]
-        // need to turn object into an array of objects
+        const stockObj = [Object.values(this.props.stockData)[1]][0]
+        var openingPrice = []
+        // for (var date in stockObj) {
+        //     console.log(`${date} = ${stockObj[date]['1. open']}`);
+        // }       
+        for (var date in stockObj) {
+            openingPrice.push(`${date} = ${stockObj[date]['1. open']}`);
+            break;
+        }    
+        console.log(openingPrice)
+
         return (
             <div className="uk-position-center">
             <Table caption="Today's Stock Data for AAPL" head={['Open', 'High', 'Low', 'Close', 'Volume']}/>
