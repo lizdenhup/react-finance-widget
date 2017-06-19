@@ -12,8 +12,6 @@ class Dashboard extends Component {
 
     render() {
         // const stockObj = [Object.values(this.props.stockData)[1]][0]
-        const stockObject = this.props.stockData['Time Series (Daily)']
-        console.log(stockObject)
         // need to turn object into an array of objects
         return (
             <div className="uk-position-center">

@@ -17,7 +17,7 @@ export const getStockPending = () => {
 export const getStockFulfilled = (stock) => {
   return {
     type: 'GET_STOCK_FULFILLED',
-    payload: stock 
+    payload: stock
   }
 }
 
