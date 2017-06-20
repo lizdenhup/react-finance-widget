@@ -39,8 +39,8 @@ export function fetchStocksWithRedux() {
     .then((response) =>{
       //at this point the response is the data object desired. it is called 'response' and not stockData \
       const stockData = response 
-      // console.log('here is the response')
-      // console.log(response)
+      console.log('here is the response')
+      console.log(response)
       dispatch(getStockFulfilled(stockData))
     })
   }
