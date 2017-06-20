@@ -1,6 +1,5 @@
 const initialState = {
   inProgress: false,
-  stocks: ['NKE', 'AMZN', 'AAPL'],
   stockData: {},
   error: {}
 }

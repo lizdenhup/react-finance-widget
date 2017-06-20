@@ -1,5 +1,4 @@
 import ApiService from '../../services/ApiService';
-import { reset } from 'redux-form';
 
 //actions
 export const getStock = () => {
@@ -30,17 +29,12 @@ export const getStockRejected = () => {
 // async function calls
 
 export function fetchStocksWithRedux() {
-  const action_type = "GET_STOCK";
-  const stock = 'AAPL';
-    return (dispatch) => {
-      console.log('called!')
+  const stockSymbol = 'AAPL';
+  return (dispatch) => {
     dispatch({type: 'GET_STOCK_PENDING'});
-    return ApiService.get(`/search?query=${stock}`)
+    return ApiService.get(`/search?query=${stockSymbol}`)
     .then((response) =>{
-      //at this point the response is the data object desired. it is called 'response' and not stockData \
-      const stockData = response 
-      console.log('here is the response')
-      console.log(response)
+      const stockData = response
       dispatch(getStockFulfilled(stockData))
     })
   }
