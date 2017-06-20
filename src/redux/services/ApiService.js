@@ -24,7 +24,7 @@ export default {
   get(url) {
     return fetch(`${BASE_URL}${url}`, {
       method: 'GET',
-      headers: 'headers'
+      headers: headers
     })
     .then(parseResponse)
   },
