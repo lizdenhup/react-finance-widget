@@ -30,7 +30,7 @@ export default {
   },
 
   getStock(url) {
-    return fetch(`http://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=PBG3&query=${url}`, {
+    return fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=PBG3&query=${url}`, {
       method: 'GET',
       headers: headers
     })
