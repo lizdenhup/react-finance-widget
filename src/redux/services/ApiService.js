@@ -29,6 +29,14 @@ export default {
     .then(parseResponse)
   },
 
+  getStock(url) {
+    return fetch(`http://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=PBG3&query=${url}`, {
+      method: 'GET',
+      headers: headers
+    })
+    .then(parseResponse)
+  },
+
   post(url, data ={}) {
     const body = JSON.stringify(data)
     return fetch(`${BASE_URL}${url}`, {

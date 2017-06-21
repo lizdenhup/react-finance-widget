@@ -29,13 +29,13 @@ export const getStockRejected = () => {
 // async function calls
 
 export function fetchStocksWithRedux() {
-  console.log('called!');
   const stock = 'AMZN';
   return function(dispatch) {
     return dispatch({
       type: 'GET_STOCK_PENDING',
-      payload: ApiService.get(`/search?query=${stock}`)
+      payload: ApiService.getStock(`${stock}`)
         .then((response) => {
+          console.log(response)
           dispatch(getStockFulfilled(response))
         })
         .catch(() => {

@@ -32,7 +32,6 @@ class App extends Component {
   
   render() {
     const { stockData, inProgress } = this.props 
-    console.log(this.props)
     return (
       <Router>
         <div className="App">
@@ -60,7 +59,7 @@ export default connect(
     isAuthenticated: state.auth.isAuthenticated,
     currentUser: state.auth.currentUser,
     inProgress: state.stock.inProgress, 
-    stock: state.stock.stockData
+    stockData: state.stock.stockData
   }), {
     logout,
     authenticate,
