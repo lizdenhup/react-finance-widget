@@ -29,34 +29,21 @@ export const getStockRejected = () => {
 // async function calls
 
 export function fetchStocksWithRedux() {
-  const stockSymbol = 'AAPL';
-  return (dispatch) => {
-    dispatch({type: 'GET_STOCK_PENDING'});
-    return ApiService.get(`/search?query=${stockSymbol}`)
-    .then((response) =>{
-      const stockData = response
-      dispatch(getStockFulfilled(stockData))
-    })
-  }
+  console.log('called!');
+  const stock = 'AMZN';
+  return function(dispatch) {
+    return dispatch({
+      type: 'GET_STOCK_PENDING',
+      payload: ApiService.get(`/search?query=${stock}`)
+        .then((response) => {
+          dispatch(getStockFulfilled(response))
+        })
+        .catch(() => {
+          dispatch(getStockRejected())
+        })
+    });
+  };
 }
-
-
-// export function fetchStocksWithRedux() {
-//   console.log('called!');
-//   const stock = 'AMZN';
-//   return function(dispatch) {
-//     return dispatch({
-//       type: 'GET_STOCK_PENDING',
-//       payload: ApiService.get(`/search?query=${stock}`)
-//         .then((response) => {
-//           dispatch(fetchStockFulfilled(response))
-//         })
-//         .catch((err) => {
-//           dispatch(fetchStocksError(err))
-//         })
-//     });
-//   };
-// }
 
 // function fetchStocksError(err){
 //   return "An error has occured";

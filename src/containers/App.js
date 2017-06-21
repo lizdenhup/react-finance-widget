@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
@@ -32,6 +31,8 @@ class App extends Component {
   }
   
   render() {
+    const { stockData, inProgress } = this.props 
+    console.log(this.props)
     return (
       <Router>
         <div className="App">
@@ -58,8 +59,8 @@ export default connect(
   state => ({
     isAuthenticated: state.auth.isAuthenticated,
     currentUser: state.auth.currentUser,
-    inProgress: state.stock.inProgress,
-    stockData: state.stock.stockData['Time Series (Daily)']
+    inProgress: state.stock.inProgress, 
+    stock: state.stock.stockData
   }), {
     logout,
     authenticate,
