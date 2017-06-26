@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getStock } from '../../redux/modules/Stock/actions';
+import { searchStock } from '../../redux/modules/Stock/actions';
 import StockForm from '../components/Forms/stock';
 
 class Search extends Component {
 
-//   handleSearch = data => this.props.getStock({stockSymbol: data})
+  handleSearch = data => this.props.searchStock({stockSymbol: data})
 
   render() {
     return(
       <div className="uk-position-center">
-        <StockForm action="search" onSubmit={this.handleSearch} />
+        <StockForm action="searchStock" onSubmit={this.handleSearch} />
       </div>
       )
   }
 }
 
 
-export default connect(null, { getStock })(Search)
+export default connect(null, { searchStock })(Search)

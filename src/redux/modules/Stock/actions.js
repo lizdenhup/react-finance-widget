@@ -13,10 +13,23 @@ export const getStockPending = () => {
   }
 }
 
+export const searchPending = () => {
+  return {
+    type: 'SEARCH_STOCK_PENDING'
+  }
+}
+
 export const getStockFulfilled = (stock) => {
   return {
     type: 'GET_STOCK_FULFILLED',
     payload: stock
+  }
+}
+
+export const searchSuccess = (stockResponse) => {
+  return {
+    type: 'SEARCH_STOCK_SUCCESS',
+    payload: stockResponse 
   }
 }
 
@@ -43,6 +56,20 @@ export function fetchStocksWithRedux() {
         })
     });
   };
+}
+
+export function searchStock(stockSymbol) {
+   return dispatch => {
+     dispatch(searchPending())
+     return ApiService.get(`/search?query=${stockSymbol}`)
+       .then(response => {
+         const { stockResponse } = response
+         dispatch(searchSuccess(stockResponse))
+       })
+       .catch((error) => {
+        dispatch(getStockRejected())
+       })
+   }
 }
 
 // function fetchStocksError(err){

@@ -1,6 +1,8 @@
 const initialState = {
   inProgress: false,
   stockData: {},
+  stockSymbol: "",
+  stockResponse: {},
   error: {}
 }
 
@@ -27,6 +29,21 @@ export default (state = initialState, action) => {
         inProgress: false,
         error: action.error
       }
+
+    case 'SEARCH_STOCK_PENDING':
+      return {
+        ...state, 
+        inProgress: true, 
+        error: false
+      }
+
+    case 'SEARCH_STOCK_SUCCESS':
+      return {
+        ...state,
+        stockReponse: action.payload,
+        inProgress: false 
+      }
+      
     default: 
       return state;
   }
