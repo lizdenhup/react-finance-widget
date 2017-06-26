@@ -63,6 +63,8 @@ export function searchStock(stockSymbol) {
      dispatch(searchPending())
      return ApiService.get(`/search?query=${stockSymbol}`)
        .then(response => {
+         debugger 
+         //the API call is failing here because stockSymbol is never getting set 
          const { stockResponse } = response
          dispatch(searchSuccess(stockResponse))
        })
