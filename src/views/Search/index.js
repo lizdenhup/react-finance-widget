@@ -1,8 +1,9 @@
 import React from 'react'
+import StockForm from '../components/Forms/stock';
 
 const  Search = () =>
     <div className="uk-position-center">
-        <h2>In progresss...</h2>
+        <StockForm />
     </div>
 
 export default Search 
