@@ -31,7 +31,6 @@ class App extends Component {
   }
   
   render() {
-    const { stockData, inProgress } = this.props 
     return (
       <Router>
         <div className="App">
