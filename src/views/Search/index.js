@@ -10,8 +10,7 @@ class Search extends Component {
   render() {
     return(
       <div className="uk-position-center">
-        <h2 className="uk-heading-line uk-text-center"><span>Enter a ticker symbol:</span></h2>
-        {/*<StockForm action="search" onSubmit={this.handleSearch} />*/}
+        <StockForm action="search" onSubmit={this.handleSearch} />
       </div>
       )
   }
