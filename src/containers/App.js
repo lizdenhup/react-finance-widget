@@ -17,7 +17,7 @@ import NotFound from '../views/NotFound'
 import Search from '../views/Search'
 
 import { authenticate, authFailure } from '../redux/modules/Auth/actions'
-import { fetchStocksWithRedux } from '../redux/modules/Stock/actions'
+import { fetchStocksWithRedux, searchStock } from '../redux/modules/Stock/actions'
 
 class App extends Component {
 
@@ -63,7 +63,8 @@ export default connect(
     logout,
     authenticate,
     authFailure,
-    fetchStocksWithRedux
+    fetchStocksWithRedux,
+    searchStock
   }
 )(App);
 

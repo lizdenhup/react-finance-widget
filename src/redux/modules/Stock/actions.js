@@ -58,13 +58,30 @@ export function fetchStocksWithRedux() {
   };
 }
 
+// export function searchStock(stockSymbol) {
+//   return function(dispatch) {
+//     return dispatch({
+//       type: 'SEARCH_STOCK_PENDING',
+//       payload: ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
+//         .then((response) => {
+//           console.log(response)
+//           dispatch(searchSuccess(response))
+//         })
+//         .catch(() => {
+//           dispatch(getStockRejected())
+//         })
+//     });
+//   };
+// }
+
+
 export function searchStock(stockSymbol) {
    return dispatch => {
      dispatch(searchPending())
      return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
        .then(response => {
-        debugger 
-         const { stockResponse } = response
+         const { stockResponse } = response;
+         debugger 
          dispatch(searchSuccess(stockResponse))
        })
        .catch((error) => {
