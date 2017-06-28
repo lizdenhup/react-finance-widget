@@ -42,7 +42,7 @@ export const getStockRejected = () => {
 // async function calls
 
 export function fetchStocksWithRedux() {
-  const stock = 'AMZN';
+  const stock = 'AAPL';
   return function(dispatch) {
     return dispatch({
       type: 'GET_STOCK_PENDING',
@@ -58,31 +58,13 @@ export function fetchStocksWithRedux() {
   };
 }
 
-// export function searchStock(stockSymbol) {
-//   return function(dispatch) {
-//     return dispatch({
-//       type: 'SEARCH_STOCK_PENDING',
-//       payload: ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
-//         .then((response) => {
-//           console.log(response)
-//           dispatch(searchSuccess(response))
-//         })
-//         .catch(() => {
-//           dispatch(getStockRejected())
-//         })
-//     });
-//   };
-// }
-
-
 export function searchStock(stockSymbol) {
    return dispatch => {
      dispatch(searchPending())
      return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
        .then(response => {
-         const { stockResponse } = response;
          debugger 
-         dispatch(searchSuccess(stockResponse))
+         dispatch(searchSuccess(response))
        })
        .catch((error) => {
         dispatch(getStockRejected())
