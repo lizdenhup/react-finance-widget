@@ -61,10 +61,9 @@ export function fetchStocksWithRedux() {
 export function searchStock(stockSymbol) {
    return dispatch => {
      dispatch(searchPending())
-     debugger 
      return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
        .then(response => {
-         //the API call is failing here because stockSymbol is never getting set 
+        debugger 
          const { stockResponse } = response
          dispatch(searchSuccess(stockResponse))
        })
