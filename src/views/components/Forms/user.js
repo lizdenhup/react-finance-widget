@@ -3,17 +3,10 @@ import { Field, reduxForm } from 'redux-form';
 
 const required = value => value ? undefined : 'This field is required.'
 
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type}/>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-)
+// const maxLength = max => value =>
+//   value && value.length > max ? `Must be ${max} characters or less` : undefined
+// const maxLength20 = maxLength(20)
 
-//updated syntax to use es6 class
 class UserForm extends Component {
 
   constructor(props) {
@@ -43,7 +36,6 @@ class UserForm extends Component {
     const { handleSubmit } = this.props
     return (
       <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
-
         <div className="uk-margin">
             <label className="uk-form-label" htmlFor="email">Email</label>
             <div className="uk-form-controls">
