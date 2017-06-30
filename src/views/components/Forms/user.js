@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 const required = value => value ? undefined : 'This field is required.'
+const minValue = min => value =>
+  value && value < min ? `Must be at least ${min} characters` : undefined
+const minValue8 = minValue(8)
+const email = value =>
+  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
+  'Please enter a valid email address' : undefined
+
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div className="uk-form-controls">
     <label className="uk-form-label">{label}</label>
       <input className="uk-input uk-form-width-medium" {...input} placeholder={label} type={type}/><br />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+      {touched && ((error && <span> {error}</span>) || (warning && <span>{warning}</span>))}
   </div>
 )
 
@@ -49,7 +56,7 @@ class UserForm extends Component {
               <Field
                 name="email"
                 value={this.state.email}
-                validate={required}
+                validate={[required, email]}
                 onChange={this.handleChange.bind(this)}
                 component={renderField}
                 id="email"
@@ -62,6 +69,7 @@ class UserForm extends Component {
               <Field
                 name="password"
                 value={this.state.password}
+                validate={[required, minValue8]}
                 onChange={this.handleChange.bind(this)}
                 component={renderField}
                 id="password"
