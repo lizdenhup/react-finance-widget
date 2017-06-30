@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 const required = value => value ? undefined : 'This field is required.'
+const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div>
+    <label>{label}</label>
+      <input {...input} placeholder={label} type={type}/><br />
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+  </div>
+)
 
 // const maxLength = max => value =>
 //   value && value.length > max ? `Must be ${max} characters or less` : undefined
@@ -44,8 +51,7 @@ class UserForm extends Component {
                 value={this.state.email}
                 validate={required}
                 onChange={this.handleChange.bind(this)}
-                className="uk-input uk-form-width-medium"
-                component="input"
+                component={renderField}
                 id="email"
                 type="text"
                 placeholder="Email"
@@ -58,7 +64,7 @@ class UserForm extends Component {
                 value={this.state.password}
                 onChange={this.handleChange.bind(this)}
                 className="uk-input uk-form-width-medium"
-                component="input"
+                component={renderField}
                 id="password"
                 type="password"
                 placeholder="Password"
