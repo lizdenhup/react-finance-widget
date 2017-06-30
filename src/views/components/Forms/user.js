@@ -17,10 +17,6 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
   </div>
 )
 
-// const maxLength = max => value =>
-//   value && value.length > max ? `Must be ${max} characters or less` : undefined
-// const maxLength20 = maxLength(20)
-
 class UserForm extends Component {
 
   constructor(props) {
@@ -47,7 +43,7 @@ class UserForm extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit, submitting } = this.props
     return (
       <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
         <div className="uk-margin">
@@ -77,7 +73,7 @@ class UserForm extends Component {
                 placeholder="Password"
               />
             </div><br />
-          <input type="submit" className="uk-button uk-button-default" value={this.props.action === "signup" ? "Create User" : "Log In"} />
+          <input type="submit" className="uk-button uk-button-default" disabled={submitting} value={this.props.action === "signup" ? "Create User" : "Log In"} />
         </div>
       </form>
     )
@@ -85,6 +81,5 @@ class UserForm extends Component {
 }
 
 export default reduxForm({
-  form: 'user',
-  // validate
+  form: 'user'
 })(UserForm);
