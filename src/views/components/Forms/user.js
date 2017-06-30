@@ -3,9 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 
 const required = value => value ? undefined : 'This field is required.'
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div>
-    <label>{label}</label>
-      <input {...input} placeholder={label} type={type}/><br />
+  <div className="uk-form-controls">
+    <label className="uk-form-label">{label}</label>
+      <input className="uk-input uk-form-width-medium" {...input} placeholder={label} type={type}/><br />
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
   </div>
 )
@@ -44,8 +44,8 @@ class UserForm extends Component {
     return (
       <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
         <div className="uk-margin">
-            <label className="uk-form-label" htmlFor="email">Email</label>
-            <div className="uk-form-controls">
+            <label>Email</label>
+            <div>
               <Field
                 name="email"
                 value={this.state.email}
@@ -57,13 +57,12 @@ class UserForm extends Component {
                 placeholder="Email"
               />
             </div><br />
-          <label className="uk-form-label" htmlFor="password">Password</label>
-            <div className="uk-form-controls">
+          <label>Password</label>
+            <div>
               <Field
                 name="password"
                 value={this.state.password}
                 onChange={this.handleChange.bind(this)}
-                className="uk-input uk-form-width-medium"
                 component={renderField}
                 id="password"
                 type="password"
