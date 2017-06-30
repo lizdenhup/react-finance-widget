@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-// front-end validations for form submitted data, not perfect 
-const validate = (values) => {
-  const errors = {};
-  if (!values.email) {
-    errors.email = 'A valid email is required';
-  } 
-  if (!values.password) {
-    errors.password = 'A password is required';
-  } else if (values.password.length < 8) {
-    errors.password = 'Password must be at least 8 characters';
-  }
-  return errors;
-}
+const required = value => value ? undefined : 'This field is required.'
+
+const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} type={type}/>
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+)
 
 //updated syntax to use es6 class
 class UserForm extends Component {
@@ -40,9 +38,9 @@ class UserForm extends Component {
       })
     }
   }
-  
+
   render() {
-    const {handleSubmit} = this.props
+    const { handleSubmit } = this.props
     return (
       <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
 
@@ -52,6 +50,7 @@ class UserForm extends Component {
               <Field
                 name="email"
                 value={this.state.email}
+                validate={required}
                 onChange={this.handleChange.bind(this)}
                 className="uk-input uk-form-width-medium"
                 component="input"
@@ -82,5 +81,5 @@ class UserForm extends Component {
 
 export default reduxForm({
   form: 'user',
-  validate
+  // validate
 })(UserForm);
