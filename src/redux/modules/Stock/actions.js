@@ -63,7 +63,8 @@ export function searchStock(stockSymbol) {
      dispatch(searchPending())
      return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
        .then((response) => {
-         debugger 
+        console.log(response)
+        //API call is successful here but state is not getting set properly
          dispatch(searchSuccess(response))
        })
        .catch((error) => {
