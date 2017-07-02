@@ -62,7 +62,7 @@ export function searchStock(stockSymbol) {
    return dispatch => {
      dispatch(searchPending())
      return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
-       .then(response => {
+       .then((response) => {
          debugger 
          dispatch(searchSuccess(response))
        })
