@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { fetchStocksWithRedux } from 
 '../../redux/modules/Stock/actions';
 import  { connect } from 'react-redux';
-import { logo } from '../../logo.svg'
+import logo from '../../logo.svg';
+import './dashboard.css'
 import Table from 'react-uikit-table';
 
 class Dashboard extends Component {
@@ -27,7 +28,7 @@ class Dashboard extends Component {
         return (
         <div className="uk-position-center">
          {
-            inProgress ? <img src={logo} className="App-logo" alt="logo" />
+            inProgress ? <img src={logo} className="App-logo" alt="logo"/>
             :
             <Table caption="Today's Stock Data for AAPL" head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
             }
