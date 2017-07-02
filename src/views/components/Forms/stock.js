@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+const required = value => value ? undefined : 'This field is required.'
+
+const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div className="uk-form-controls">
+    <label className="uk-form-label">{label}</label>
+      <input className="uk-input uk-form-width-medium" {...input} placeholder={label} type={type}/><br />
+      {touched && ((error && <span> {error}</span>) || (warning && <span>{warning}</span>))}
+  </div>
+)
+
 class StockForm extends Component {
 
   constructor(props) {
@@ -22,36 +32,30 @@ class StockForm extends Component {
   }
   
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit, submitting } = this.props
     return (
       <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
         <div className="uk-margin">
-            <div className="uk-form-controls">
+            <div>
               <Field
                 name="stockSymbol"
                 value={this.state.stockSymbol}
                 onChange={this.handleChange.bind(this)}
+                validate={required}
                 className="uk-input uk-form-width-medium"
-                component="input"
+                component={renderField}
                 id="stockSymbol"
                 type="text"
                 placeholder="Ticker symbol"
               />
             </div><br />
-          <input type="submit" className="uk-button uk-button-default" value="Search for this stock" />
+          <input type="submit" className="uk-button uk-button-default" disabled={submitting} value="Search for this stock" />
         </div>
       </form>
     )
   }
 }
 
-const validate = values => {
-  let errors  = {}
-  // custom validations go here
-  return errors 
-}
-
 export default reduxForm({
-  form: 'stock',
-  validate
+  form: 'stock'
 })(StockForm);
