@@ -1,8 +1,6 @@
 const initialState = {
   inProgress: false,
   stockData: {},
-  stockSymbol: "",
-  stockResponse: {},
   error: {}
 }
 

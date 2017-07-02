@@ -58,7 +58,8 @@ export default connect(
     isAuthenticated: state.auth.isAuthenticated,
     currentUser: state.auth.currentUser,
     inProgress: state.stock.inProgress, 
-    stockData: state.stock.stockData
+    stockData: state.stock.stockData,
+    stockResponse: state.stock.stockResponse
   }), {
     logout,
     authenticate,

@@ -13,7 +13,7 @@ export const getStockPending = () => {
   }
 }
 
-export const searchPending = () => {
+export const searchPending = (stockSymbol) => {
   return {
     type: 'SEARCH_STOCK_PENDING'
   }
@@ -60,7 +60,7 @@ export function fetchStocksWithRedux() {
 
 export function searchStock(stockSymbol) {
    return dispatch => {
-     dispatch(searchPending())
+     dispatch(searchPending(stockSymbol))
      return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
        .then((response) => {
         console.log(response)

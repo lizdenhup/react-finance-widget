@@ -17,4 +17,7 @@ class Search extends Component {
 }
 
 
-export default connect(null, { searchStock })(Search);
+export default connect(
+  state => ({
+    stockResponse: state.stock.stockResponse 
+  }), { searchStock })(Search);
