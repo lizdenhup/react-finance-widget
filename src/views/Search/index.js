@@ -8,9 +8,13 @@ class Search extends Component {
   handleSearch = data => this.props.searchStock({stockSymbol: data})
 
   render() {
+    const { stockResponse } = this.props 
+    console.log(stockResponse)
     return(
       <div className="uk-position-center">
+      {
         <StockForm action="searchStock" onSubmit={this.handleSearch} />
+      }
       </div>
       )
   }
