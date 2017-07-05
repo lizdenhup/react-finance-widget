@@ -5,19 +5,18 @@ import {
   Switch
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from '../redux/modules/Auth/actions';
 
 // views
-import Navbar from '../views/Navbar'
-import Welcome from '../views/Welcome'
-import Signup from '../views/Signup'
-import Login from '../views/Login'
-import Dashboard from '../views/Dashboard'
-import NotFound from '../views/NotFound'
-import Search from '../views/Search'
+import Navbar from './views/Navbar'
+import Welcome from './views/Welcome'
+import Signup from './views/Signup'
+import Login from './views/Login'
+import Dashboard from './views/Dashboard'
+import NotFound from './views/NotFound'
+import Search from './views/Search'
 
-import { authenticate, authFailure } from '../redux/modules/Auth/actions'
-import { fetchStocksWithRedux, searchStock } from '../redux/modules/Stock/actions'
+import { authenticate, authFailure, logout } from './redux/modules/Auth/actions'
+// import { fetchStocksWithRedux, searchStock } from '../redux/modules/Stock/actions'
 
 class App extends Component {
 
@@ -57,15 +56,11 @@ export default connect(
   state => ({
     isAuthenticated: state.auth.isAuthenticated,
     currentUser: state.auth.currentUser,
-    inProgress: state.stock.inProgress, 
-    stockData: state.stock.stockData,
-    stockResponse: state.stock.stockResponse
+    inProgress: state.stock.inProgress
   }), {
     logout,
     authenticate,
-    authFailure,
-    fetchStocksWithRedux,
-    searchStock
+    authFailure
   }
 )(App);
 
