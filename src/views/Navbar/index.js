@@ -17,26 +17,31 @@ class Navbar extends Component {
   }
 
   render() {
-    return (
-      <nav className="uk-navbar-container navbar uk-navbar">
-        <div className="uk-navbar-left">
-          {
-            this.props.isAuthenticated ?
+    if (this.props.isAuthenticated) { 
+      return (
+        <nav className="uk-navbar-container navbar uk-navbar">
+          <div className="uk-navbar-left">
             <ul className="uk-navbar-nav">
               <li><NavLink to="/" >{this.props.currentUser.email}</NavLink></li>
+            </ul>
+          </div> 
+          <div className="uk-navbar-right">
+            <ul className="uk-navbar-nav">
               <li><NavLink to="/" onClick={this.handleLogout}>Log Out</NavLink></li>
             </ul>
-
-            :
-
-            <ul className="uk-navbar-nav">
-              <li><NavLink to="/signup">Signup</NavLink></li>
-              <li><NavLink to="/login">Login</NavLink></li>
-            </ul>
-          }
-        </div>
-      </nav>
-    )
+          </div>  
+        </nav> 
+      )} else { 
+          return (
+            <nav className="uk-navbar-container navbar uk-navbar">
+              <div className="uk-navbar-left">
+                <ul className="uk-navbar-nav">
+                  <li><NavLink to="/signup">Signup</NavLink></li>
+                  <li><NavLink to="/login">Login</NavLink></li>
+                </ul>
+              </div> 
+            </nav>
+          )}
   }
 }
 
