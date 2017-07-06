@@ -37,6 +37,8 @@ class App extends Component {
             isAuthenticated={this.props.isAuthenticated} 
             logout={this.props.logout} 
             currentUser={this.props.currentUser} 
+            //the navbar has access to these props because it is
+            //a child of App, and App has access to all of these props
           />
           <Switch>
             <Route exact path="/" component={this.props.isAuthenticated ? Dashboard : Welcome} />
@@ -46,6 +48,8 @@ class App extends Component {
             <Route exact path="/search" component={Search} />*/}
             <Route component={NotFound} />
           </Switch>
+
+
         </div>
       </Router>
     );
@@ -56,7 +60,7 @@ export default connect(
   state => ({
     isAuthenticated: state.auth.isAuthenticated,
     currentUser: state.auth.currentUser,
-    inProgress: state.stock.inProgress
+    isFetchingData: state.stock.isFetchingData
   }), {
     logout,
     authenticate,
