@@ -1,15 +1,41 @@
 const initialState = {
-  inProgress: false,
-  stocks: []
+  isFetchingData: false,
+  stocks: [],
+  error: {}
 }
+
+let id = 0; 
 
 export default (state = initialState, action) => {
   switch(action.type) {
 
-    case 'ADD_STOCK':
+    case 'PENDING_STOCK_REQUEST':
     return {
-      stocks: state.stocks.concat(action.stock)
+      ...state,
+      isFetchingData: true 
     }
+
+    case 'STOCK_REQUEST_SUCCESS':
+    return {
+      ...state,
+      isFetchingData: false
+    }
+
+    case 'STOCK_REQUEST_FAILURE':
+    return {
+      ...state,
+      isFetchingData: false,
+      error: action.error 
+    }
+
+    case 'PIN_STOCK':
+    id++; 
+    const stock = Object.assign({}, action.stock, { id: id });
+    return { stocks: state.stocks.concat(stock) }
+
+    case 'REMOVE_PINNED_STOCK':
+    const stocks = state.stocks.filter(stock => stock.id !== action.id);
+    return { stocks }
 
     default: 
       return state;
