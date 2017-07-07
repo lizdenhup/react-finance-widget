@@ -1,6 +1,7 @@
 const initialState = {
   isFetchingData: false,
   stocks: [],
+  currentStock: {},
   error: {}
 }
 
@@ -12,13 +13,14 @@ export default (state = initialState, action) => {
     case 'PENDING_STOCK_REQUEST':
       return {
         ...state,
-        isFetchingData: true 
+        isFetchingData: true
       }
 
     case 'STOCK_REQUEST_SUCCESS':
       return {
         ...state,
-        isFetchingData: false
+        isFetchingData: false,
+        currentStock: action.stockData
       }
 
     case 'STOCK_REQUEST_FAILURE':
