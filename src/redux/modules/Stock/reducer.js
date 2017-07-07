@@ -1,7 +1,10 @@
 const initialState = {
   isFetchingData: false,
   stocks: [],
-  currentStock: {},
+  currentStock: {
+    stockSymbol: '',
+    stockData: {}
+  },
   error: {}
 }
 
@@ -20,7 +23,10 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetchingData: false,
-        currentStock: action.stockData
+        currentStock: {
+          stockSymbol: action.stockSymbol,
+          stockData: action.payload
+        }
       }
 
     case 'STOCK_REQUEST_FAILURE':
