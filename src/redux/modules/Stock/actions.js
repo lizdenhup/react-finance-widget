@@ -32,7 +32,7 @@ export const searchFailure = (errors) => {
 export const search = (stockSymbol) => {
   return dispatch => {
     dispatch(searchRequest());
-    return ApiService.get(`/search?query=${stockSymbol}`)
+    return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
       .then(response => {
         const { stockData } = response;
         dispatch(searchSuccess(stockData))

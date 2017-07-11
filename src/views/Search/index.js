@@ -4,18 +4,21 @@ import { search } from '../../redux/modules/Stock/actions';
 import StockForm from '../components/Forms/stock';
 
 class Search extends Component {
-  submit = (values) => {
-  console.log(values)
-}
-  
+
+  handleSearch = data => this.props.search({stockSymbol: data})
+
   render() {
-    return (
-      <div>
-        <p>...</p>
-        <StockForm onSubmit={this.submit} />
+    console.log(this.props)
+    //stockResponse is not getting set as a prop 
+    return(
+      <div className="uk-position-center">
+        <StockForm action="searchRequest" onSubmit={this.handleSearch} />
       </div>
-    )
+      )
   }
 }
 
-export default connect(null, { search })(Search);
+export default connect(
+  state => ({
+    stockResponse: state.stock.stockResponse 
+  }), { search })(Search);

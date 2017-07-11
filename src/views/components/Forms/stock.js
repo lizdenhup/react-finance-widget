@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+const required = value => value ? undefined : 'This field is required.'
+
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div className="uk-form-controls">
     <label className="uk-form-label">{label}</label>
@@ -10,46 +12,50 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
 )
 
 class StockForm extends Component {
-constructor(props) {
+
+  constructor(props) {
     super(props)
 
     this.state = {
-        currentStock: {
-          stockSymbol: ""
-        }
+      stockSymbol: ""
     }
   }
 
-handleChange(event) {
-    if (event.target.name === 'currentStock[stockSymbol]') {
+  handleSubmit = data => this.props.onSubmit(data)
+
+  handleChange(event) {
+    if (event.target.value === 'stockSymbol') {
       this.setState({
-        currentStock: {
-            stockSymbol: event.target.value 
-        }
+        stockSymbol: event.target.value
       })
     }
   }
-
+  
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, submitting } = this.props
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Stock Symbol</label>
-          <Field name="currentStock[stockSymbol]" 
-          component={renderField}
-          value={this.state.currentStock.stockSymbol}
-          onChange={this.handleChange.bind(this)} type="text"/>
-        <button type="submit">Submit</button>
-        {this.state.currentStock.stockSymbol}
-        </div>        
+      <form className="uk-form-stacked" onSubmit={handleSubmit(this.handleSubmit)}>
+        <div className="uk-margin">
+            <div>
+              <Field
+                name="stockSymbol"
+                value={this.state.stockSymbol}
+                onChange={this.handleChange.bind(this)}
+                validate={required}
+                className="uk-input uk-form-width-medium"
+                component={renderField}
+                id="stockSymbol"
+                type="text"
+                placeholder="Ticker symbol"
+              />
+            </div><br />
+          <input type="submit" className="uk-button uk-button-default" disabled={submitting} value="Search for this stock" />
+        </div>
       </form>
-    );
+    )
   }
 }
 
-StockForm = reduxForm({
-  form: 'stock' // a unique name for this form
+export default reduxForm({
+  form: 'stock'
 })(StockForm);
-
-export default StockForm;
