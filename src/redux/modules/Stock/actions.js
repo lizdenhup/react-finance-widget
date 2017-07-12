@@ -24,7 +24,7 @@ const searchRequest = () => {
 const searchSuccess = (stock) => {
   return {
     type: 'STOCK_REQUEST_SUCCESS',
-    stock: stock 
+    stockData: stock 
   }
 }
 
@@ -37,13 +37,13 @@ export const searchFailure = (errors) => {
 }
 
 export const search = (stockSymbol) => {
-  console.log('in the search action')
-  console.log(stockSymbol)
   return dispatch => {
     dispatch(searchRequest());
     return ApiService.get(`/search?query=${stockSymbol}`)
       .then(response => {
         const { stockData } = response;
+        //why is stockData undefined if the response is going through?
+        debugger 
         dispatch(searchSuccess(stockData))
         dispatch(reset('search'));
       })

@@ -21,7 +21,6 @@ class Search extends Component {
   render() {
     return(
       <div className="uk-position-center">
-        {/*<StockForm action="searchRequest" onSubmit={this.handleSearch} />*/}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input 
             type="text"
@@ -41,7 +40,8 @@ class Search extends Component {
 
 function mapStateToProps(state) {
   return {
-    stockSymbol: state.stock.currentStock.stockSymbol
+    stockSymbol: state.stock.currentStock.stockSymbol,
+    stockData: state.stock.currentStock.stockData
   }
 }
 
