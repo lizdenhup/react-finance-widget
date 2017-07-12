@@ -13,6 +13,13 @@ let id = 0;
 export default (state = initialState, action) => {
   switch(action.type) {
 
+    case 'UPDATE_STOCK_TICKER_INPUT': 
+    return {
+      ...state,
+      currentStock: {
+        stockSymbol: action.stockSymbol
+      }
+    }
     case 'PENDING_STOCK_REQUEST':
       return {
         ...state,

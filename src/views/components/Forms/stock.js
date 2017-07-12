@@ -13,20 +13,14 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
 
 class StockForm extends Component {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      stockSymbol: ""
-    }
-  }
-
-  handleSubmit = data => this.props.onSubmit(data)
+handleSubmit = data => this.props.onSubmit(data)
 
   handleChange(event) {
     if (event.target.value === 'stockSymbol') {
       this.setState({
-        stockSymbol: event.target.value
+        currentStock: {
+          stockSymbol: event.target.value
+        }
       })
     }
   }
@@ -38,8 +32,7 @@ class StockForm extends Component {
         <div className="uk-margin">
             <div>
               <Field
-                name="stockSymbol"
-                value={this.state.stockSymbol}
+                name="currentStock[stockSymbol]"
                 onChange={this.handleChange.bind(this)}
                 validate={required}
                 className="uk-input uk-form-width-medium"

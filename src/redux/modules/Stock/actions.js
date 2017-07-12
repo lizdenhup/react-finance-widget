@@ -8,6 +8,13 @@ remove pinned stock
 get current stock info (for a given stock card)
 */
 
+export function updateStockTicker(stockSymbol) {
+  return {
+    type: 'UPDATE_STOCK_TICKER_INPUT',
+    stockSymbol 
+  }
+}
+
 const searchRequest = () => {
   return {
     type: 'PENDING_STOCK_REQUEST',
@@ -30,9 +37,11 @@ export const searchFailure = (errors) => {
 }
 
 export const search = (stockSymbol) => {
+  console.log('in the search action')
+  console.log(stockSymbol)
   return dispatch => {
     dispatch(searchRequest());
-    return ApiService.get(`/search?query=${Object.values(stockSymbol['stockSymbol'])}`)
+    return ApiService.get(`/search?query=${stockSymbol}`)
       .then(response => {
         const { stockData } = response;
         dispatch(searchSuccess(stockData))
