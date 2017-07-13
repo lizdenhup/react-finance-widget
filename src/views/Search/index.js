@@ -50,6 +50,7 @@ class Search extends Component {
 function mapStateToProps(state) {
   return {
     isFetchingData: state.stock.isFetchingData,
+    hasFetchedData: state.stock.hasFetchedData,
     stockSymbol: state.stock.currentStock.stockSymbol,
     stockData: state.stock.currentStock.stockData
   }
