@@ -19,9 +19,13 @@ class Search extends Component {
   }
 
   render() {
-    return(
-      <div className="uk-position-center">
-        <form onSubmit={this.handleSubmit.bind(this)}>
+    // if this.props.stockSymbol !== "" && Object.keys(this.props.stockData) !== 0
+    // render result
+    // else, render search form
+
+      return (
+        <div className="uk-position-center">
+          <form onSubmit={this.handleSubmit.bind(this)}>
           <input 
             type="text"
             name="stockSymbol"
@@ -30,10 +34,7 @@ class Search extends Component {
             />
             <button type="submit">Submit</button>
         </form>
-        <div>
-        {JSON.stringify(this.props.stockData)}
-        </div>
-      </div>
+        </div> 
       )
   }
 }
