@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { search, updateStockTicker } from '../../redux/modules/Stock/actions';
-// import StockForm from '../components/Forms/stock';
+import logo from '../../logo.svg';
+import '../../styles/spin.css';
 
 class Search extends Component {
 
@@ -22,7 +23,13 @@ class Search extends Component {
     // if this.props.stockSymbol !== "" && Object.keys(this.props.stockData) !== 0
     // render result
     // else, render search form
-
+    if (this.props.isFetchingData) {
+      return (
+        <div className="uk-position-center">
+          <img src={logo} alt="React logo" className="App-logo" />
+        </div>
+      )
+    } else {
       return (
         <div className="uk-position-center">
           <form onSubmit={this.handleSubmit.bind(this)}>
@@ -36,12 +43,14 @@ class Search extends Component {
         </form>
         </div> 
       )
+    }
   }
 }
 
 function mapStateToProps(state) {
   console.log(state.stock.currentStock.stockData)
   return {
+    isFetchingData: state.stock.isFetchingData,
     stockSymbol: state.stock.currentStock.stockSymbol,
     stockData: state.stock.currentStock.stockData
   }
