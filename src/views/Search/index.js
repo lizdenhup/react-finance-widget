@@ -29,6 +29,12 @@ class Search extends Component {
           <img src={logo} alt="React logo" className="App-logo" />
         </div>
       )
+    } else if (this.props.hasFetchedData) {
+      return (
+      <div>
+      {JSON.stringify(this.props.stockData)}
+      </div> 
+      )
     } else {
       return (
         <div className="uk-position-center">
