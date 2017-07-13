@@ -44,7 +44,7 @@ class Search extends Component {
         }   
       const tableData = [{d1: todaysData[0], d2: todaysData[1], d3: todaysData[2], d4: todaysData[3], d5: todaysData[4]}]
       return (
-      <div>
+      <div className="uk-position-center">
       {ticker}
       <Table caption="Today's Stock Data for {ticker}" head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
       </div> 
