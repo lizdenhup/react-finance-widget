@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { search, updateStockTicker } from '../../redux/modules/Stock/actions';
 import logo from '../../logo.svg';
 import '../../styles/spin.css';
+import Table from 'react-uikit-table';
 
 class Search extends Component {
 
@@ -41,11 +42,11 @@ class Search extends Component {
             todaysData.push(`${stockObj[date]['5. volume']}`);
             break;
         }   
-      //simply need to add these values to a table 
-      console.log(todaysData)
+      const tableData = [{d1: todaysData[0], d2: todaysData[1], d3: todaysData[2], d4: todaysData[3], d5: todaysData[4]}]
       return (
       <div>
       {ticker}
+      <Table caption="Today's Stock Data for {ticker}" head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
       </div> 
       )
     } else {
