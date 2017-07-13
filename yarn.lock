@@ -4996,6 +4996,16 @@ react-scripts@1.0.7:
   optionalDependencies:
     fsevents "1.0.17"
 
+react-uikit-badge@~2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-uikit-badge/-/react-uikit-badge-2.0.1.tgz#d826123f0f6eb109da01578005173b16560e9e88"
+  dependencies:
+    cuid "~1.3.8"
+    react "~15.3.2"
+    react-dom "~15.3.2"
+    react-uikit-base "~2.0.2"
+    ufunc "~2.0.1"
+
 react-uikit-base@^2.0.2, react-uikit-base@~2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/react-uikit-base/-/react-uikit-base-2.0.2.tgz#baee5d4f4ae0c20c924c4f519a3a8b542c1e5175"
@@ -5003,6 +5013,17 @@ react-uikit-base@^2.0.2, react-uikit-base@~2.0.2:
     cuid "~1.3.8"
     react "~15.3.2"
     react-dom "~15.3.2"
+    ufunc "~2.0.1"
+
+react-uikit-panel@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-uikit-panel/-/react-uikit-panel-2.0.2.tgz#ffdafdd14caf94eef8a9210eac35dd831eb31194"
+  dependencies:
+    cuid "~1.3.8"
+    react "~15.3.2"
+    react-dom "~15.3.2"
+    react-uikit-badge "~2.0.1"
+    react-uikit-base "~2.0.2"
     ufunc "~2.0.1"
 
 react-uikit-table@^2.0.1:
