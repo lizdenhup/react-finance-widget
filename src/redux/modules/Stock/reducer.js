@@ -1,5 +1,6 @@
 const initialState = {
   isFetchingData: false,
+  hasFetchedData: false, 
   stocks: [],
   currentStock: {
     stockSymbol: '',
@@ -32,6 +33,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetchingData: false,
+        hasFetchedData: true, 
         currentStock: {
           stockSymbol: action.stockSymbol, 
           stockData: action.stockData
@@ -42,6 +44,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetchingData: false,
+        hasFetchedData: false, 
         error: action.error 
       }
 

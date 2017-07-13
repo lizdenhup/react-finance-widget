@@ -7,13 +7,13 @@ import '../../styles/spin.css';
 class Search extends Component {
 
   handleSearch = stockSymbol => this.props.search(stockSymbol)
-
+  //the stock ticker input was bound to the stockSymbol state in the redux store 
   onStockInputChange(event) {
     if (event.target.name === 'stockSymbol') {
       this.props.updateStockTicker(event.target.value)
     }
   }
-
+  //this submit handler prevents a browser refresh and searches the stockSymbol that was mapped from state to props
   handleSubmit(e) {
     e.preventDefault();
     this.props.search(this.props.stockSymbol)
