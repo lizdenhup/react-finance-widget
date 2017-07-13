@@ -31,8 +31,7 @@ class Search extends Component {
             <button type="submit">Submit</button>
         </form>
         <div>
-        {this.props.stockSymbol}
-        {/*{this.props.stockData}*/}
+        {JSON.stringify(this.props.stockData)}
         </div>
       </div>
       )
