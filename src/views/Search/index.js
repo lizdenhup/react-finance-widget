@@ -32,6 +32,7 @@ class Search extends Component {
         </form>
         <div>
         {this.props.stockSymbol}
+        {/*{this.props.stockData}*/}
         </div>
       </div>
       )
@@ -39,6 +40,7 @@ class Search extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state.stock.currentStock.stockData)
   return {
     stockSymbol: state.stock.currentStock.stockSymbol,
     stockData: state.stock.currentStock.stockData

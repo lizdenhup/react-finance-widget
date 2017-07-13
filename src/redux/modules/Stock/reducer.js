@@ -27,12 +27,14 @@ export default (state = initialState, action) => {
       }
 
     case 'STOCK_REQUEST_SUCCESS':
+    // console.log('i am a response')
+    // console.log(action.stockSymbol, action.stockData)
       return {
         ...state,
         isFetchingData: false,
         currentStock: {
-          stockSymbol: action.stockSymbol,
-          stockData: action.payload
+          stockSymbol: action.stockSymbol, 
+          stockData: action.stockData
         }
       }
 
