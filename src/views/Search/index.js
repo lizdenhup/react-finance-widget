@@ -43,7 +43,7 @@ class Search extends Component {
         </form>
         </div> 
       )
-    }
+    } 
   }
 }
 
