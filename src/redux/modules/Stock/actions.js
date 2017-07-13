@@ -50,14 +50,10 @@ export const search = (stockSymbol) => {
     dispatch(searchRequest());
     return ApiService.get(`/search?query=${stockSymbol}`)
       .then(stockData => {
-        // const { stockData } = response
-        //why is stockData undefined if the response is not undefined? => there is no stockData properly in the response. take away the brackets. or change response to stockData
         dispatch(searchSuccess(stockSymbol, stockData))
-        // dispatch(reset('search'));
       })
       .catch((errors) => {
         console.log(errors)
-        // dispatch(showFailure())
         dispatch(searchFailure(errors))
       })
   }
