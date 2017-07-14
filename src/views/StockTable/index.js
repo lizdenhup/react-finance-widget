@@ -6,6 +6,11 @@ import Table from 'react-uikit-table';
 
 class StockTable extends Component {
 
+  handleClick(e) {
+    console.log('you clicked!')
+    // this.props.pinStock(this.props.stockSymbol)
+  }
+
   render() {
     const ticker = this.props.stockData['Meta Data']['2. Symbol']
     const stockObj = [Object.values(this.props.stockData)[1]][0]
@@ -22,6 +27,7 @@ class StockTable extends Component {
     return (
       <div className="uk-position-center">
         <Table caption={`Today's Stock Data for ${ticker}`} head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
+        <button onClick={this.handleClick.bind(this)}>Pin this stock</button>
       </div> 
     )
   } 
