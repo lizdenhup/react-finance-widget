@@ -53,7 +53,6 @@ export const search = (stockSymbol) => {
         dispatch(searchSuccess(stockSymbol, stockData))
       })
       .catch((errors) => {
-        console.log(errors)
         dispatch(searchFailure(errors))
       })
   }

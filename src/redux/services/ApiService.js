@@ -9,6 +9,7 @@ const headers =  {
   'Content-Type': 'application/json',
   'Authorization': `Bearer: ${token}`
 }
+// this parseResponse function should handle errors
 
 const parseResponse = (response) => {
   return response.json()
