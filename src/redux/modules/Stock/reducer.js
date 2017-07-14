@@ -50,7 +50,7 @@ export default (state = initialState, action) => {
 
     case 'PIN_STOCK':
       id++; 
-      const stock = Object.assign({}, action.stockSymbol, { id: id });
+      const stock = {stockSymbol: action.stockSymbol, id: id};
       return { 
         ...state,
         stocks: state.stocks.concat(stock) 
