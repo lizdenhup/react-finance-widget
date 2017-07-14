@@ -44,6 +44,10 @@ export const pinStock = (stockSymbol) => {
   }
 }
 
+export const removePinnedStock = (stockSymbol) => {
+  // will add 
+}
+
 export const searchFailure = (errors) => {
   return {
     type: 'STOCK_REQUEST_FAILURE',
