@@ -24,6 +24,7 @@ class Navbar extends Component {
             <ul className="uk-navbar-nav">
               <li><NavLink to="/" >{this.props.currentUser.email}</NavLink></li> 
               <li><NavLink to="/search">Search</NavLink></li>
+              <li><NavLink to="/dashboard">My Dashboard</NavLink></li>
             </ul>
           </div> 
           <div className="uk-navbar-right">
