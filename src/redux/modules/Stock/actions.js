@@ -37,6 +37,13 @@ const searchSuccess = (stockSymbol, stockData) => {
   }
 }
 
+export const pinStock = (stockSymbol) => {
+  return {
+    type: 'PIN_STOCK',
+    stockSymbol: stockSymbol 
+  }
+}
+
 export const searchFailure = (errors) => {
   return {
     type: 'STOCK_REQUEST_FAILURE',

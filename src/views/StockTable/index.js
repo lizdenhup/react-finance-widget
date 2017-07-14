@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Table from 'react-uikit-table';
+import { pinStock } from '../../redux/modules/Stock/actions';
 // import Panel from 'react-uikit-panel';
 // import Icons from 'react-uikit-icons';
 
@@ -8,7 +9,7 @@ class StockTable extends Component {
 
   handleClick(e) {
     console.log('you clicked!')
-    // this.props.pinStock(this.props.stockSymbol)
+    this.props.pinStock(this.props.stockSymbol);
   }
 
   render() {
@@ -40,4 +41,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, null)(StockTable); 
+export default connect(mapStateToProps, { pinStock })(StockTable); 

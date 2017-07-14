@@ -50,8 +50,11 @@ export default (state = initialState, action) => {
 
     case 'PIN_STOCK':
       id++; 
-      const stock = Object.assign({}, action.stock, { id: id });
-      return { stocks: state.stocks.concat(stock) }
+      const stock = Object.assign({}, action.stockSymbol, { id: id });
+      return { 
+        ...state,
+        stocks: state.stocks.concat(stock) 
+      }
 
     case 'REMOVE_PINNED_STOCK':
       const stocks = state.stocks.filter(stock => stock.id !== action.id);
