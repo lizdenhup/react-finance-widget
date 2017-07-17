@@ -40,12 +40,16 @@ const searchSuccess = (stockSymbol, stockData) => {
 export const pinStock = (stockSymbol) => {
   return {
     type: 'PIN_STOCK',
+    stock_id: stockSymbol.id, 
     stockSymbol: stockSymbol 
   }
 }
 
-export const removePinnedStock = (stockSymbol) => {
-  // will add 
+export const removePinnedStock = (id) => {
+  return {
+    type: 'REMOVE_PINNED_STOCK',
+    stock_id: id
+  }
 }
 
 export const searchFailure = (errors) => {

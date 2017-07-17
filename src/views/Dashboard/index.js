@@ -13,7 +13,9 @@ class Dashboard extends Component {
         } else {
         return (
         <div>
-            <p>You have so many stocks</p>
+            <p>You have so many stocks, here they are:</p>
+            {/*{this.props.stocks}.map(stock =>
+            <li>{stock}</li>)*/}
         </div>
         )
         }
