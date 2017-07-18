@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Table from 'react-uikit-table';
-import { pinStock } from '../../redux/modules/Stock/actions';
+import { addStock } from '../../redux/modules/Stock/actions';
 // import Panel from 'react-uikit-panel';
 // import Icons from 'react-uikit-icons';
 
 class StockTable extends Component {
 
   handleClick(e) {
-    this.props.pinStock(this.props.stockSymbol, this.props.currentUser.id);
+    this.props.addStock(this.props.stockSymbol);
     // console.log(this.props.stockSymbol, this.props.currentUser.id)
+    //pinStock should fire a request to the API to make a new stock nested under the current user
   }
 
   render() {
+    const user_id = this.props.currentUser.id 
     const ticker = this.props.stockData['Meta Data']['2. Symbol']
     const stockObj = [Object.values(this.props.stockData)[1]][0]
     var todaysData = []   
@@ -38,8 +40,8 @@ function mapStateToProps(state) {
   return {
     stockSymbol: state.stock.currentStock.stockSymbol,
     stockData: state.stock.currentStock.stockData,
-    currentUser: state.auth.currentUser 
+    currentUser: state.auth.currentUser
   }
 }
 
-export default connect(mapStateToProps, { pinStock })(StockTable); 
+export default connect(mapStateToProps, { addStock })(StockTable); 

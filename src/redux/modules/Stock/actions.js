@@ -37,30 +37,29 @@ const searchSuccess = (stockSymbol, stockData) => {
   }
 }
 
-export const pinStock = (stockSymbol, user_id) => {
+export const pinStock = (stockSymbol) => {
     return {
     type: 'PIN_STOCK',
-    stockSymbol: stockSymbol,
-    user_id: user_id 
+    stock: stockSymbol
   }
 }
 
-export const addStock = () => {
-  // const user_id = currentUser.id 
-  //basically right here you want to grab the current user id,
-  //and make a POST request to api/v1/users/user_id/stocks with
-  //the body of the post request including the stockSymbol
-  //ie, you're creating a stock nested underneath a particular user
-  // return dispatch => {
-  //   dispatch(pinStock(stockSymbol));
-  //   return ApiService.post(`/users/${user_id}/stocks`)
-  //     .then(stockData => {
-  //       dispatch(searchSuccess(stockSymbol, stockData))
-  //     })
-  //     .catch((errors) => {
-  //       dispatch(searchFailure(errors))
-  //     })
-  // }
+export const addStock = (stockSymbol) => {
+  //not sure if this is working 
+  //current issue is this.props.currentUser.id is undefined within this file
+  const user_id = this.props.currentUser.id
+  const token = localStorage.getItem('token')
+  return dispatch => {
+    dispatch(pinStock(stockSymbol));
+    return ApiService.post("/users/" + user_id + "/stocks", {stockSymbol, token})
+      .then(response => {
+        const { stock } = response
+        console.log(stock)
+      })
+      .catch((errors) => {
+        console.log(errors)
+      })
+  }
 }
 
 export const removePinnedStock = (id) => {
