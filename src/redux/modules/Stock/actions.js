@@ -45,8 +45,7 @@ export const pinStock = (stockSymbol) => {
 }
 
 export const addStock = (user_id, stockSymbol) => {
-  //not sure if this is working 
-  //current issue is getting status 404 error not found as of 4:27 PM
+// CORS issue? 
   const token = localStorage.getItem('token')
   return dispatch => {
     dispatch(pinStock(stockSymbol));
