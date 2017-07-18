@@ -8,8 +8,8 @@ import { pinStock } from '../../redux/modules/Stock/actions';
 class StockTable extends Component {
 
   handleClick(e) {
-    console.log('you clicked!')
-    this.props.pinStock(this.props.stockSymbol);
+    this.props.pinStock(this.props.stockSymbol, this.props.currentUser.id);
+    // console.log(this.props.stockSymbol, this.props.currentUser.id)
   }
 
   render() {
@@ -37,7 +37,8 @@ class StockTable extends Component {
 function mapStateToProps(state) {
   return {
     stockSymbol: state.stock.currentStock.stockSymbol,
-    stockData: state.stock.currentStock.stockData
+    stockData: state.stock.currentStock.stockData,
+    currentUser: state.auth.currentUser 
   }
 }
 

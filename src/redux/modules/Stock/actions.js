@@ -37,12 +37,30 @@ const searchSuccess = (stockSymbol, stockData) => {
   }
 }
 
-export const pinStock = (stockSymbol) => {
-  return {
+export const pinStock = (stockSymbol, user_id) => {
+    return {
     type: 'PIN_STOCK',
-    stock_id: stockSymbol.id, 
-    stockSymbol: stockSymbol 
+    stockSymbol: stockSymbol,
+    user_id: user_id 
   }
+}
+
+export const addStock = () => {
+  // const user_id = currentUser.id 
+  //basically right here you want to grab the current user id,
+  //and make a POST request to api/v1/users/user_id/stocks with
+  //the body of the post request including the stockSymbol
+  //ie, you're creating a stock nested underneath a particular user
+  // return dispatch => {
+  //   dispatch(pinStock(stockSymbol));
+  //   return ApiService.post(`/users/${user_id}/stocks`)
+  //     .then(stockData => {
+  //       dispatch(searchSuccess(stockSymbol, stockData))
+  //     })
+  //     .catch((errors) => {
+  //       dispatch(searchFailure(errors))
+  //     })
+  // }
 }
 
 export const removePinnedStock = (id) => {
