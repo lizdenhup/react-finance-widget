@@ -8,13 +8,12 @@ import { addStock } from '../../redux/modules/Stock/actions';
 class StockTable extends Component {
 
   handleClick(e) {
-    this.props.addStock(this.props.stockSymbol);
+    this.props.addStock(this.props.currentUser.id, this.props.stockSymbol);
     // console.log(this.props.stockSymbol, this.props.currentUser.id)
     //pinStock should fire a request to the API to make a new stock nested under the current user
   }
 
   render() {
-    const user_id = this.props.currentUser.id 
     const ticker = this.props.stockData['Meta Data']['2. Symbol']
     const stockObj = [Object.values(this.props.stockData)[1]][0]
     var todaysData = []   
