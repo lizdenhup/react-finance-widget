@@ -1,6 +1,8 @@
 import fetch from 'isomorphic-fetch'
 
-const BASE_URL = 'https://pacific-plains-89545.herokuapp.com/api/v1'
+// const BASE_URL = 'https://pacific-plains-89545.herokuapp.com/api/v1'
+//not using Heroku for now - deploying locally to avoid headaches 
+const BASE_URL = "http://localhost:3002/api/v1"
 
 const token = JSON.parse(localStorage.getItem('token'))
  
