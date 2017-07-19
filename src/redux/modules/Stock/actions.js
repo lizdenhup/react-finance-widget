@@ -45,12 +45,15 @@ export const pinStock = (stockSymbol) => {
 }
 
 export const addStock = (user_id, stockSymbol) => {
-// CORS issue? 
   const token = localStorage.getItem('token')
   return dispatch => {
     dispatch(pinStock(stockSymbol));
-    return ApiService.post("/users/" + user_id + "/stocks", {stockSymbol, token})
+    //this POST request is not formatted properly I don't think, stock is not getting set
+    console.log('here is stockSymbol')
+    console.log(stockSymbol)
+    return ApiService.post("/users/" + user_id + "/stocks", {stock: {...stockSymbol}})
       .then(response => {
+        debugger 
         const { stock } = response
         console.log(stock)
       })

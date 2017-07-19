@@ -34,6 +34,9 @@ export default {
 
   post(url, data ={}) {
     const body = JSON.stringify(data)
+    console.log('here is the data and the body')
+    console.log(data)
+    console.log(body)
     return fetch(`${BASE_URL}${url}`, {
       method: 'POST',
       headers: headers,
