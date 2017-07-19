@@ -48,12 +48,11 @@ export const addStock = (user_id, stockSymbol) => {
   const token = localStorage.getItem('token')
   return dispatch => {
     dispatch(pinStock(stockSymbol));
-    //this POST request is not formatted properly I don't think, stock is not getting set
-    console.log('here is stockSymbol')
-    console.log(stockSymbol)
+    // console.log('here is stockSymbol')
+    // console.log(stockSymbol)
     return ApiService.post("/users/" + user_id + "/stocks", {stock: {...stockSymbol}})
       .then(response => {
-        debugger 
+        // debugger 
         const { stock } = response
         console.log(stock)
       })
@@ -61,6 +60,16 @@ export const addStock = (user_id, stockSymbol) => {
         console.log(errors)
       })
   }
+}
+
+export const fetchPinnedStocks = (user_id) => {
+  return ApiService.get("/users/" + user_id + "/stocks")
+    .then(response => {
+      const { pinnedStocks } = response 
+      console.log(response)
+    }).catch((errors) => {
+      console.log(errors)
+    }
 }
 
 export const removePinnedStock = (id) => {
