@@ -45,7 +45,7 @@ export const pinStock = (stockSymbol) => {
 }
 
 export const addStock = (user_id, stockSymbol) => {
-  const token = localStorage.getItem('token')
+  // const token = localStorage.getItem('token')
   return dispatch => {
     dispatch(pinStock(stockSymbol));
     // console.log('here is stockSymbol')
@@ -63,13 +63,15 @@ export const addStock = (user_id, stockSymbol) => {
 }
 
 export const fetchPinnedStocks = (user_id) => {
-  return ApiService.get("/users/" + user_id + "/stocks")
+  return dispatch => {
+    return ApiService.get("/users/" + user_id + "/stocks")
     .then(response => {
       const { pinnedStocks } = response 
       console.log(response)
     }).catch((errors) => {
       console.log(errors)
-    }
+    })
+  }
 }
 
 export const removePinnedStock = (id) => {

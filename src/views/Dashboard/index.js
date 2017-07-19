@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchPinnedStocks } from '../../redux/modules/Stock/actions';
 
 class Dashboard extends Component {
 
+    componentDidMount() {
+    // fetch the stocks via API call
+    // set the stocks array to chomp the API payload
+    // if there are more than 0 stocks return them and display them
+    const user_id = this.props.currentUser.id 
+    this.props.fetchPinnedStocks(user_id)
+    }
+
     render() {
-        if (this.props.stocks.length === 0) {
         return (
         <div>
             <p>You have no stocks</p>
         </div>
-        )
-        } else {
-        return (
-        <div>
-            <p>You have so many stocks, here they are:</p>
-            {/*{this.props.stocks}.map(stock =>
-            <li>{stock}</li>)*/}
-        </div>
-        )
-        }
+        ) 
     }
 }
 
 function mapStateToProps(state) {
   return {
-    stocks: state.stock.stocks 
+    stocks: state.stock.stocks,
+    currentUser: state.auth.currentUser
   }
 }
 
-export default connect(mapStateToProps, null)(Dashboard); 
+export default connect(mapStateToProps, { fetchPinnedStocks })(Dashboard); 
 
