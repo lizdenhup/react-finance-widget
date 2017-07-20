@@ -6,6 +6,13 @@ import '../../styles/spin.css';
 
 class Dashboard extends Component {
 
+    componentDidMount() {
+        if (this.props.isAuthenticated) {
+            const user_id = this.props.currentUser.id 
+            this.props.fetchPinnedStocks(user_id) 
+        }
+    }
+
     render() {
         //as a first step I am simply printing the names of the fetched stocks to the dashboard before rendering them each on their own card with
         //associated table data. still need to fix race condition bt post auth/refresh
@@ -17,8 +24,6 @@ class Dashboard extends Component {
             </div>
             )
         } else {
-            const user_id = this.props.currentUser.id 
-            this.props.fetchPinnedStocks(user_id)
                 if (this.props.stocks && this.props.stocks.length > 0) {
                     return(
                         <div>
