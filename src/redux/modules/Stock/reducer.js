@@ -55,6 +55,12 @@ export default (state = initialState, action) => {
         ...state,
         stocks: state.stocks.concat(stock) 
       }
+    
+    case 'GOT_STOCKS':
+    return {
+      ...state,
+      stocks: action.stocks 
+    }
 
     case 'REMOVE_PINNED_STOCK':
       const stocks = state.stocks.filter(stock => stock.id !== action.id);

@@ -73,7 +73,7 @@ export const fetchPinnedStocks = (user_id) => {
   return dispatch => {
     return ApiService.get("/users/" + user_id + "/stocks")
     .then(pinnedStocks => {
-      debugger 
+      dispatch(gotStocks(pinnedStocks))
       console.log(pinnedStocks)
     }).catch((errors) => {
       console.log(errors)
