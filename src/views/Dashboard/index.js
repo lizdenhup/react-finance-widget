@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPinnedStocks } from '../../redux/modules/Stock/actions';
+import { fetchPinnedStocks, removePinnedStock } from '../../redux/modules/Stock/actions';
 import logo from '../../logo.svg';
 import '../../styles/spin.css';
 
@@ -12,6 +12,11 @@ class Dashboard extends Component {
             this.props.fetchPinnedStocks(user_id) 
         }
     }
+
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     this.props.removePinnedStock(stock.id)
+    // }
 
     render() {
         //as a first step I am simply printing the names of the fetched stocks to the dashboard before rendering them each on their own card with
@@ -30,6 +35,7 @@ class Dashboard extends Component {
                         {this.props.stocks.map(stock => 
                         <div key={stock.id}>
                             {stock.name}<br />
+                            <button type="submit" onSubmit={this.handleSubmit}>Remove</button> 
                         </div>)}
                         </div>
                     ) 
@@ -53,5 +59,5 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchPinnedStocks })(Dashboard); 
+export default connect(mapStateToProps, { fetchPinnedStocks, removePinnedStock })(Dashboard); 
 

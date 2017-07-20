@@ -84,7 +84,7 @@ export const fetchPinnedStocks = (user_id) => {
 export const removePinnedStock = (id) => {
   return {
     type: 'REMOVE_PINNED_STOCK',
-    stock_id: id
+    id: id
   }
 }
 

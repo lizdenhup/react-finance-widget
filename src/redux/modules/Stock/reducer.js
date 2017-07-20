@@ -63,7 +63,7 @@ export default (state = initialState, action) => {
     }
 
     case 'REMOVE_PINNED_STOCK':
-      const stocks = state.stocks.filter(stock => stock.id !== action.id);
+      const stocks = state.stock.stocks.stocks.filter(stock => stock[id] !== action.id);
       return { stocks }
 
     default: 
