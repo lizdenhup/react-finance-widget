@@ -62,12 +62,19 @@ export const addStock = (user_id, stockSymbol) => {
   }
 }
 
+export const gotStocks = (stocks) => {
+  return {
+    type: 'GOT_STOCKS',
+    stocks: stocks 
+  }
+}
+
 export const fetchPinnedStocks = (user_id) => {
   return dispatch => {
     return ApiService.get("/users/" + user_id + "/stocks")
-    .then(response => {
-      const { pinnedStocks } = response 
-      console.log(response)
+    .then(pinnedStocks => {
+      debugger 
+      console.log(pinnedStocks)
     }).catch((errors) => {
       console.log(errors)
     })
