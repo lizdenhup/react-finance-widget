@@ -16,7 +16,7 @@ import NotFound from './views/NotFound'
 import Search from './views/Search'
 
 import { authenticate, authFailure, logout } from './redux/modules/Auth/actions'
-// import { fetchStocksWithRedux, searchStock } from '../redux/modules/Stock/actions'
+// import { fetchPinnedStocks } from './redux/modules/Stock/actions'
 
 class App extends Component {
 
