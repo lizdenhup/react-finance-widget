@@ -12,11 +12,12 @@ class Dashboard extends Component {
             this.props.fetchPinnedStocks(user_id) 
         }
     }
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     this.props.removePinnedStock(stock.id)
-    // }
+    handleClick(e) {
+        e.preventDefault();
+        //need to pass in db id of stock to delete 
+        const user_id = this.props.currentUser.id 
+        this.props.removePinnedStock(user_id, this.props.stocks.id)
+    }
 
     render() {
         //as a first step I am simply printing the names of the fetched stocks to the dashboard before rendering them each on their own card with
@@ -35,7 +36,7 @@ class Dashboard extends Component {
                         {this.props.stocks.map(stock => 
                         <div key={stock.id}>
                             {stock.name}<br />
-                            <button type="submit" onSubmit={this.handleSubmit}>Remove</button> 
+                            <button type="submit" onClick={this.handleClick.bind(this)}>Remove</button> 
                         </div>)}
                         </div>
                     ) 

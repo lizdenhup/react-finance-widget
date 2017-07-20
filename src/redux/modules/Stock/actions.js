@@ -81,12 +81,17 @@ export const fetchPinnedStocks = (user_id) => {
   }
 }
 
-export const removePinnedStock = (id) => {
-  return {
-    type: 'REMOVE_PINNED_STOCK',
-    id: id
+export const removePinnedStock = (user_id, stock_id) => {
+  return dispatch => {
+    return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
+    .then(response => {
+      console.log(response)
+    }).catch((errors) => {
+        console.log(errors);
+      })
   }
 }
+
 
 export const searchFailure = (errors) => {
   return {
