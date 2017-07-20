@@ -15,12 +15,20 @@ class Dashboard extends Component {
     }
 
     render() {
+        console.log('this is this.props.stocks')
+        console.log(this.props.stocks)
+        //as a first step I am simply printing the names of the fetched stocks to the dashboard before rendering them each on their own card with
+        //associated table data. still need to fix race condition bt post auth/refresh
+        //and get stocks 
         if (this.props.stocks && this.props.stocks.length > 0) {
-            return (
-                <div>
-                    ugh 
-                </div>
-            )
+                return(
+                    <div>
+                    {this.props.stocks.map(stock => 
+                    <div key={stock.id}>
+                        {stock.name}<br />
+                    </div>)}
+                    </div>
+                )
         } else {
             return (
             <div>
