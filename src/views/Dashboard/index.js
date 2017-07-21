@@ -12,17 +12,8 @@ class Dashboard extends Component {
             this.props.fetchPinnedStocks(user_id) 
         }
     }
-    handleClick(e) {
-        e.preventDefault();
-        //need to pass in db id of stock to delete 
-        const user_id = this.props.currentUser.id 
-        this.props.removePinnedStock(user_id, this.props.stocks.id)
-    }
 
     render() {
-        //as a first step I am simply printing the names of the fetched stocks to the dashboard before rendering them each on their own card with
-        //associated table data. still need to fix race condition bt post auth/refresh
-        //and get stocks 
         if (this.props.isAuthenticating) {
         return (
             <div className="uk-position-center">
@@ -31,12 +22,13 @@ class Dashboard extends Component {
             )
         } else {
                 if (this.props.stocks && this.props.stocks.length > 0) {
+                    let user_id = this.props.currentUser.id 
                     return(
                         <div>
                         {this.props.stocks.map(stock => 
                         <div key={stock.id}>
                             {stock.name}<br />
-                            <button type="submit" onClick={this.handleClick.bind(this)}>Remove</button> 
+                            <button type="submit" onClick={removePinnedStock(user_id, stock.id)}>Remove</button> 
                         </div>)}
                         </div>
                     ) 
