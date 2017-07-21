@@ -1,12 +1,4 @@
 import ApiService from '../../services/ApiService';
-// import { reset } from 'redux-form'
-/* 
-Actions to include:
-search stock
-pin stock
-remove pinned stock
-get current stock info (for a given stock card)
-*/
 
 export function updateStockTicker(stockSymbol) {
   return {
@@ -20,14 +12,6 @@ const searchRequest = () => {
     type: 'PENDING_STOCK_REQUEST',
   }
 }
-
-// const searchResponse = (stockSymbol, stockData) => {
-//   return {
-//     type: 'STOCK_RESPONSE',
-//     stockData: stockData,
-//     stockSymbol: stockSymbol 
-//   }
-// }
 
 const searchSuccess = (stockSymbol, stockData) => {
   return {
@@ -44,17 +28,19 @@ export const pinStock = (stockSymbol) => {
   }
 }
 
+export const clearCurrentStock = () => {
+  return {
+    type: 'CLEAR_CURRENT_STOCK'
+  }
+}
+
 export const addStock = (user_id, stockSymbol) => {
-  // const token = localStorage.getItem('token')
   return dispatch => {
     dispatch(pinStock(stockSymbol));
-    // console.log('here is stockSymbol')
-    // console.log(stockSymbol)
     return ApiService.post("/users/" + user_id + "/stocks", {stock: {...stockSymbol}})
-      .then(response => {
-        // debugger 
-        const { stock } = response
+      .then(stock => {
         console.log(stock)
+        // dispatch(clearCurrentStock())
       })
       .catch((errors) => {
         console.log(errors)
@@ -86,8 +72,9 @@ export const removePinnedStock = (user_id, stock_id) => {
     return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
     .then(response => {
       console.log(response)
+      dispatch(removePinnedStock(stock_id))
     }).catch((errors) => {
-        console.log(errors);
+        console.log(errors)
       })
   }
 }

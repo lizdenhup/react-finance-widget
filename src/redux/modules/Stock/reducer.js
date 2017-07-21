@@ -21,6 +21,7 @@ export default (state = initialState, action) => {
         stockSymbol: action.stockSymbol
       }
     }
+
     case 'PENDING_STOCK_REQUEST':
       return {
         ...state,
@@ -28,8 +29,6 @@ export default (state = initialState, action) => {
       }
 
     case 'STOCK_REQUEST_SUCCESS':
-    // console.log('i am a response')
-    // console.log(action.stockSymbol, action.stockData)
       return {
         ...state,
         isFetchingData: false,
@@ -39,6 +38,23 @@ export default (state = initialState, action) => {
           stockData: action.stockData
         }
       }
+
+    case 'SET_CURRENT_STOCK':
+    return {
+      ...state,
+      currentStock: {
+        stockSymbol: action.stockSymbol 
+      }
+    }
+
+    case 'CLEAR_CURRENT_STOCK':
+    return {
+      ...state,
+      currentStock: {
+        stockSymbol: '',
+        stockData: {}
+      }
+    }
 
     case 'STOCK_REQUEST_FAILURE':
       return {
