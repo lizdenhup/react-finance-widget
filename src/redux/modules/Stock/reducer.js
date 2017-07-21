@@ -1,7 +1,14 @@
 const initialState = {
   isFetchingData: false,
   hasFetchedData: false, 
-  stocks: [],
+  stocks: [
+    {name: '',
+    openingPrice: '',
+    closingPrice: '',
+    high: '',
+    low: '',
+    volume: ''}
+  ],
   currentStock: {
     stockSymbol: '',
     stockData: {}

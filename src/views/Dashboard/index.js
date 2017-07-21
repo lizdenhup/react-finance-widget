@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPinnedStocks, deletePinnedStock, removeStock } from '../../redux/modules/Stock/actions';
+import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../../redux/modules/Stock/actions';
 import logo from '../../logo.svg';
 import '../../styles/spin.css';
 import Panel from 'react-uikit-panel';
@@ -30,6 +30,7 @@ class Dashboard extends Component {
                         <Grid>
                         {this.props.stocks.map((stock, index) => 
                         <Panel key={index} col='1-2' box title={stock.name} margin='bottom' context='primary'>
+                            
                             <button type="submit" onClick={deletePinnedStock(user_id, stock.id)}>Remove</button>
                         </Panel>)}
                         </Grid>)
@@ -53,5 +54,5 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchPinnedStocks, deletePinnedStock, removeStock })(Dashboard); 
+export default connect(mapStateToProps, { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData })(Dashboard); 
 

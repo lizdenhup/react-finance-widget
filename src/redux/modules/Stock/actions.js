@@ -107,3 +107,24 @@ export const search = (stockSymbol) => {
       })
   }
 }
+
+export const fetchStockData = (name) => {
+  return dispatch => {
+    return ApiService.get(`/search?query=${name}`)
+    .then(resp => {
+    const stockDataResp = [Object.values(resp)[1]][0]
+    var todaysData = []   
+    for (var date in stockDataResp) {
+        todaysData.push(`${stockDataResp[date]['1. open']}`);
+        todaysData.push(`${stockDataResp[date]['2. high']}`);
+        todaysData.push(`${stockDataResp[date]['3. low']}`);
+        todaysData.push(`${stockDataResp[date]['4. close']}`);
+        todaysData.push(`${stockDataResp[date]['5. volume']}`);
+        break;
+    }   
+      console.log(todaysData)
+    }).catch((err) =>
+    console.log(err) 
+    )
+  }
+}
