@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../../redux/modules/Stock/actions';
 import logo from '../../logo.svg';
 import '../../styles/spin.css';
-import Panel from 'react-uikit-panel';
-import Grid from 'react-uikit-grid'
+import StockCard from '../StockCard';
 
 class Dashboard extends Component {
 
@@ -24,16 +23,9 @@ class Dashboard extends Component {
             )
         } else {
                 if (this.props.stocks && this.props.stocks.length > 0) {
-                    let user_id = this.props.currentUser.id 
-                    
                     return (
-                        <Grid>
-                        {this.props.stocks.map((stock, index) => 
-                        <Panel key={index} col='1-2' box title={stock.name} margin='bottom' context='primary'>
-                            
-                            <button type="submit" onClick={deletePinnedStock(user_id, stock.id)}>Remove</button>
-                        </Panel>)}
-                        </Grid>)
+                        <StockCard /> 
+                    )
                 } else {
                     return (
                     <div>

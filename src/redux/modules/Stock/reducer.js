@@ -87,7 +87,6 @@ export default (state = initialState, action) => {
 
     case 'REMOVE_PINNED_STOCK':
       const deleteIndex = state.stock.stocks.stocks(stock => stock.index === action.stock_id)
-      debugger 
       return {
         stocks: [
               ...state.stock.stocks.stocks.slice(0, deleteIndex),

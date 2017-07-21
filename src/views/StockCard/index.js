@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../../redux/modules/Stock/actions';
-import logo from '../../logo.svg';
 import '../../styles/spin.css';
 import Panel from 'react-uikit-panel';
 import Grid from 'react-uikit-grid'
@@ -9,37 +8,24 @@ import Grid from 'react-uikit-grid'
 class StockCard extends Component {
 
     componentDidMount() {
-        if (this.props.isAuthenticated) {
-            this.props.fetchStockData(stock)
-        }
     }
 
     render() {
-        if (this.props.isAuthenticating) {
+        const user_id = this.props.currentUser.id 
         return (
-            <div className="uk-position-center">
-                <img src={logo} alt="React logo" className="App-logo" />
-            </div>
-            )
-        } else {
-                if (this.props.stocks && this.props.stocks.length > 0) {
-                    let user_id = this.props.currentUser.id 
-                    
-                    return (
-                        <div>
-                        </div> 
-                    ) 
-                }
-        }
+            <Grid>
+            {this.props.stocks.map((stock, index) => 
+            <Panel key={index} col='1-2' box title={stock.name} margin='bottom' context='primary'>
+            <button type="submit" onClick={deletePinnedStock(user_id, stock.id)}>Remove</button>
+            </Panel>)}
+            </Grid>)
     }
 }
 
 function mapStateToProps(state) {
   return {
     stocks: state.stock.stocks.stocks,
-    currentUser: state.auth.currentUser,
-    isAuthenticating: state.auth.isAuthenticating, 
-    isAuthenticated: state.auth.isAuthenticated
+    currentUser: state.auth.currentUser
   }
 }
 
