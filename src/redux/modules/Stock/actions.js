@@ -55,6 +55,13 @@ export const gotStocks = (stocks) => {
   }
 }
 
+export const removeStock = (stock_id) => {
+  return {
+    type: 'REMOVE_PINNED_STOCK',
+    stock_id: stock_id 
+  }
+}
+
 export const fetchPinnedStocks = (user_id) => {
   return dispatch => {
     return ApiService.get("/users/" + user_id + "/stocks")
@@ -67,18 +74,18 @@ export const fetchPinnedStocks = (user_id) => {
   }
 }
 
-export const removePinnedStock = (user_id, stock_id) => {
+export const deletePinnedStock = (user_id, stock_id) => {
   return dispatch => {
     return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
     .then(response => {
+      // program never gets to this dispatch statement 
+      dispatch(removeStock(stock_id))
       console.log(response)
-      dispatch(removePinnedStock(stock_id))
     }).catch((errors) => {
         console.log(errors)
       })
   }
 }
-
 
 export const searchFailure = (errors) => {
   return {
