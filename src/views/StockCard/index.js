@@ -8,6 +8,10 @@ import Grid from 'react-uikit-grid'
 class StockCard extends Component {
 
     componentDidMount() {
+        this.props.stocks.map((stock, index) => {
+        this.props.fetchStockData(stock.name)
+        //I'm printing out the data to the console really quickly, not sure how to pass it to the card
+        })
     }
 
     render() {
