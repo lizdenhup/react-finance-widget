@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Table from 'react-uikit-table';
 import { addStock } from '../../redux/modules/Stock/actions';
-// import Panel from 'react-uikit-panel';
-// import Icons from 'react-uikit-icons';
 
 class StockTable extends Component {
 
