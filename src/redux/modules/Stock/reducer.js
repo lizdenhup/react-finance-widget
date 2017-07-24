@@ -1,20 +1,22 @@
 const initialState = {
   isFetchingData: false,
   hasFetchedData: false, 
-  stocks: [
-    {name: '',
-    openingPrice: '',
-    closingPrice: '',
-    high: '',
-    low: '',
-    volume: ''}
-  ],
+  stocks: [],
   currentStock: {
     stockSymbol: '',
     stockData: {}
   },
   error: {}
 }
+
+/*
+stocksById: [
+  {stock1: 
+    openingPrice: ''
+    ...
+    low: ''}
+]
+*/
 
 let id = 0; 
 
@@ -84,6 +86,22 @@ export default (state = initialState, action) => {
       ...state,
       stocks: action.stocks 
     }
+
+    case 'GOT_DATA':
+    console.log('------')
+    console.log(action.stock)
+    return {
+      ...state
+    }
+    // need to change stock sinto an object and then key it 
+
+    //can store the stocks as an object and not an array 
+
+    // case 'FETCHING_PINNED_STOCK_DATA': 
+    // return {
+    //   ...state,
+
+    // }
 
     case 'REMOVE_PINNED_STOCK':
       const deleteIndex = state.stock.stocks.stocks(stock => stock.index === action.stock_id)

@@ -6,6 +6,7 @@ import '../../styles/spin.css';
 import StockCard from '../StockCard';
 
 class Dashboard extends Component {
+//create a stock card for each stock it fetches
 
     componentDidMount() {
         if (this.props.isAuthenticated) {
@@ -16,15 +17,21 @@ class Dashboard extends Component {
 
     render() {
         if (this.props.isAuthenticating) {
-        return (
-            <div className="uk-position-center">
-                <img src={logo} alt="React logo" className="App-logo" />
-            </div>
-            )
+            return (
+                <div className="uk-position-center">
+                    <img src={logo} alt="React logo" className="App-logo" />
+                </div>
+                )
         } else {
+            console.log('this should be the stocks arr')
+            console.log(this.props.stocks)
                 if (this.props.stocks && this.props.stocks.length > 0) {
                     return (
-                        <StockCard /> 
+                        <div>
+                            {this.props.stocks.map((stock, index) => {
+                                return <StockCard key={index} stock={stock} /> 
+                            })}
+                        </div> 
                     )
                 } else {
                     return (

@@ -7,28 +7,51 @@ import Grid from 'react-uikit-grid'
 
 class StockCard extends Component {
 
-    componentDidMount() {
-        this.props.stocks.map((stock, index) => {
-        this.props.fetchStockData(stock.name)
-        //I'm printing out the data to the console really quickly, not sure how to pass it to the card
-        })
-    }
+    // componentDidMount() {
+    //     this.props.stocks.map((stock, index) => {
+    //     const result = this.props.fetchStockData(stock.name)
+    //     result.then(result => console.log(result))
+    //     })
+    // }
 
     render() {
         const user_id = this.props.currentUser.id 
+        const stock = this.props.stock
+        if (!stock) { 
+            return null 
+        } else {
         return (
-            <Grid>
-            {this.props.stocks.map((stock, index) => 
-            <Panel key={index} col='1-2' box title={stock.name} margin='bottom' context='primary'>
-            <button type="submit" onClick={deletePinnedStock(user_id, stock.id)}>Remove</button>
-            </Panel>)}
-            </Grid>)
+            <Panel col='1-2' box title={stock.name} margin='bottom' context='primary'>
+                <div>
+                    Open: {stock.openingPrice}
+                </div>
+                <div>
+                    Close: {stock.closingPrice}
+                </div>
+                <div>
+                    Low: {stock.low}
+                </div>
+                <div>
+                    High: {stock.high}
+                </div>
+                <div>
+                    Trading Volume: {stock.volume}
+                </div>
+                <button type="submit" onClick={deletePinnedStock(user_id, stock.id)}>Remove</button>
+            </Panel>)
+        }
     }
 }
 
+//stock card should be a single component 
+//stockCard can expect a stock to be passed it in props 
+//dashboard will generate stock cards
+//parent component will be connected to state (pull in stocks and then created a stock card for each stock it receives)
+//this.props.name
+//this.props.openingPrice 
+
 function mapStateToProps(state) {
   return {
-    stocks: state.stock.stocks.stocks,
     currentUser: state.auth.currentUser
   }
 }

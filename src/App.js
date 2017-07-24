@@ -28,6 +28,9 @@ class App extends Component {
       this.props.authFailure()
     }
   }
+  //do auth in app component and then let other components not worry about it 
+  //just check for a user_id, if not then kick user to login page 
+  //otherwise assume its there and that will remove race condition 
   
   render() {
     return (
@@ -48,13 +51,14 @@ class App extends Component {
             <Route exact path="/search" component={Search} />
             <Route component={NotFound} />
           </Switch>
-
-
         </div>
       </Router>
     );
   }
 }
+
+//when app loads authenticate
+//save state so other components can look at it
 
 export default connect(
   state => ({
