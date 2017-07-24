@@ -132,11 +132,13 @@ export const fetchStockData = (name) => {
         const stockDataResp = [Object.values(resp)[1]][0]
         for (var date in stockDataResp) {
           const newStock = new Stock({
+            name: name, 
             openingPrice: stockDataResp[date]['1. open'],
             high: stockDataResp[date]['2. high'],
             low: stockDataResp[date]['3. low'],
             close: stockDataResp[date]['4. close'],
-            volume: stockDataResp[date]['5. volume']
+            volume: stockDataResp[date]['5. volume'],
+            lastRefreshed: Date.now()
           })
           dispatch ({
             type: 'GOT_DATA',
