@@ -8,7 +8,7 @@ class StockCard extends Component {
 
     render() {
         const user_id = this.props.currentUser.id 
-        const stock = this.props.stock
+        const stock = this.props.stock 
         if (!stock) { 
             return null 
         } else {

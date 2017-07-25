@@ -24,8 +24,8 @@ class Dashboard extends Component {
                 </div>
                 )
         } else {
-            console.log('this should be the stocks arr')
-            console.log(this.props.stocks)
+            console.log('this should be the stocksData obj')
+            console.log(this.props.stocksData)
                 if (this.props.stocks && this.props.stocks.length > 0) {
                     return (
                         <Grid>
@@ -47,7 +47,8 @@ class Dashboard extends Component {
 
 function mapStateToProps(state) {
   return {
-    stocks: state.stock.stocks.stocks,
+    stocks: state.stock.stocks.stocks, 
+    stocksData: state.stock.stocksData,
     currentUser: state.auth.currentUser,
     isAuthenticating: state.auth.isAuthenticating, 
     isAuthenticated: state.auth.isAuthenticated
