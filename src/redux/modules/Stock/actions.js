@@ -1,6 +1,7 @@
 import ApiService from '../../services/ApiService';
 import Stock from '../../../Classes/stock.js';
 
+//actions related to searching for a stock 
 export function updateStockTicker(stockSymbol) {
   return {
     type: 'UPDATE_STOCK_TICKER_INPUT',
@@ -14,6 +15,19 @@ const searchRequest = () => {
   }
 }
 
+export const search = (stockSymbol) => {
+  return dispatch => {
+    dispatch(searchRequest());
+    return ApiService.get(`/search?query=${stockSymbol}`)
+      .then(stockData => {
+        dispatch(searchSuccess(stockSymbol, stockData))
+      })
+      .catch((errors) => {
+        dispatch(searchFailure(errors))
+      })
+  }
+}
+
 const searchSuccess = (stockSymbol, stockData) => {
   return {
     type: 'STOCK_REQUEST_SUCCESS',
@@ -22,16 +36,26 @@ const searchSuccess = (stockSymbol, stockData) => {
   }
 }
 
-export const pinStock = (stockSymbol) => {
-    return {
-    type: 'PIN_STOCK',
-    stock: stockSymbol
+export const searchFailure = (errors) => {
+  return {
+    type: 'STOCK_REQUEST_FAILURE',
+    currentStock: {},
+    errors: errors 
   }
 }
 
 export const clearCurrentStock = () => {
   return {
     type: 'CLEAR_CURRENT_STOCK'
+  }
+}
+//////
+
+//actions related to pinning a stock to the redux state/adding that stock to the Rails DB
+export const pinStock = (stockSymbol) => {
+    return {
+    type: 'PIN_STOCK',
+    stock: stockSymbol
   }
 }
 
@@ -49,20 +73,7 @@ export const addStock = (user_id, stockSymbol) => {
   }
 }
 
-export const gotStocks = (stocks) => {
-  return {
-    type: 'GOT_STOCKS',
-    stocks: stocks 
-  }
-}
-
-export const removeStock = (stock_id) => {
-  return {
-    type: 'REMOVE_PINNED_STOCK',
-    stock_id: stock_id 
-  }
-}
-
+// actions related to fetching the pinned stocks and getting their associated data from Alpha Vantage
 export const fetchPinnedStocks = (user_id) => {
   return dispatch => {
     return ApiService.get("/users/" + user_id + "/stocks")
@@ -84,40 +95,10 @@ export const fetchPinnedStocks = (user_id) => {
   }
 }
 
-export const deletePinnedStock = (user_id, stock_id) => {
-  return dispatch => {
-    return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
-    .then(response => {
-      // program never gets to this dispatch statement 
-      dispatch(removeStock(stock_id))
-      console.log(response)
-    }).catch((errors) => {
-        console.log(errors)
-      })
-  }
-}
-
-export const searchFailure = (errors) => {
+export const gotStocks = (stocks) => {
   return {
-    type: 'STOCK_REQUEST_FAILURE',
-    currentStock: {},
-    errors: errors 
-  }
-}
-
-//before getting to the reducer or to the component want to convert the data 
-//into stock class
-
-export const search = (stockSymbol) => {
-  return dispatch => {
-    dispatch(searchRequest());
-    return ApiService.get(`/search?query=${stockSymbol}`)
-      .then(stockData => {
-        dispatch(searchSuccess(stockSymbol, stockData))
-      })
-      .catch((errors) => {
-        dispatch(searchFailure(errors))
-      })
+    type: 'GOT_STOCKS',
+    stocks: stocks 
   }
 }
 
@@ -152,3 +133,28 @@ export const fetchStockData = (name) => {
       )
   }
 }
+
+//actions related to getting rid of a pinned stock from the redux state/rails DB
+export const deletePinnedStock = (user_id, stock_id) => {
+  return dispatch => {
+    return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
+    .then(response => {
+      // program never gets to this dispatch statement 
+      dispatch(removeStock(stock_id))
+      console.log(response)
+    }).catch((errors) => {
+        console.log(errors)
+      })
+  }
+}
+
+export const removeStock = (stock_id) => {
+  return {
+    type: 'REMOVE_PINNED_STOCK',
+    stock_id: stock_id 
+  }
+}
+
+
+
+

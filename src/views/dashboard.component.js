@@ -4,6 +4,7 @@ import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } fro
 import logo from '../logo.svg';
 import '../styles/spin.css';
 import StockCard from './stockcard.component.js';
+import Grid from 'react-uikit-grid'
 
 class Dashboard extends Component {
 //create a stock card for each stock it fetches
@@ -27,11 +28,11 @@ class Dashboard extends Component {
             console.log(this.props.stocks)
                 if (this.props.stocks && this.props.stocks.length > 0) {
                     return (
-                        <div>
+                        <Grid>
                             {this.props.stocks.map((stock, index) => {
                                 return <StockCard key={index} stock={stock} /> 
                             })}
-                        </div> 
+                        </Grid> 
                     )
                 } else {
                     return (

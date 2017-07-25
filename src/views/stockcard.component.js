@@ -3,16 +3,8 @@ import { connect } from 'react-redux';
 import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../redux/modules/Stock/actions';
 import '../styles/spin.css';
 import Panel from 'react-uikit-panel';
-import Grid from 'react-uikit-grid'
 
 class StockCard extends Component {
-
-    // componentDidMount() {
-    //     this.props.stocks.map((stock, index) => {
-    //     const result = this.props.fetchStockData(stock.name)
-    //     result.then(result => console.log(result))
-    //     })
-    // }
 
     render() {
         const user_id = this.props.currentUser.id 
