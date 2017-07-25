@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../redux/modules/Auth/actions'
-import UserForm from '../components/Forms/user';
-import logo from '../../logo.svg';
-import '../../styles/spin.css';
+import { login } from '../redux/modules/Auth/actions'
+import UserForm from './Forms/user';
+import logo from '../logo.svg';
+import '../styles/spin.css';
 
 class Login extends Component {
   static contextTypes = {

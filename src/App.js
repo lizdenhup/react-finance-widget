@@ -7,12 +7,12 @@ import {
 import { connect } from 'react-redux';
 
 // views
-import Navbar from './views/Navbar'
+import Navbar from './views/navbar.component.js'
 import Welcome from './views/welcome.js'
 import Signup from './views/signup.component.js'
-import Login from './views/Login'
+import Login from './views/login.component.js'
 import Dashboard from './views/dashboard.component.js'
-import NotFound from './views/NotFound'
+import NotFound from './views/notfound.js'
 import Search from './views/search.component.js'
 
 import { authenticate, authFailure, logout } from './redux/modules/Auth/actions'

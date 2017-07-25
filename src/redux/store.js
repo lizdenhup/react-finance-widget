@@ -5,8 +5,8 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { reducer as form } from 'redux-form';
-import auth from '../modules/Auth/reducer';
-import stock from '../modules/Stock/reducer';
+import auth from './modules/Auth/reducer';
+import stock from './modules/Stock/reducer';
 
 const reducers = combineReducers({
   form, 
