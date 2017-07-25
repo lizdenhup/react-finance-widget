@@ -78,8 +78,9 @@ export const fetchPinnedStocks = (user_id) => {
   return dispatch => {
     return ApiService.get("/users/" + user_id + "/stocks")
     .then(pinnedStocks => {
-      pinnedStocks.stocks.map((stock, index) => {
-        dispatch(fetchStockData(stock.name))
+      console.log('this is what the pinnedStocks look like', pinnedStocks)
+      pinnedStocks.stocks.map((stock) => {
+        dispatch(fetchStockData(stock.name, stock.id))
       })
       dispatch(gotStocks(pinnedStocks))
       //pinned stocks is an object with an array 
@@ -102,14 +103,11 @@ export const gotStocks = (stocks) => {
   }
 }
 
-export const fetchStockData = (name) => {
-  // need to dispatch an action to tie this function to reducer
-  //then tie to components 
-  console.log(name)
+export const fetchStockData = (name, stock_id) => {
   return dispatch => {
     ApiService.get(`/search?query=${name}`)
       .then(resp => {
-        console.log('response for name', name)
+        console.log('response for name', name, stock_id)
         const stockDataResp = [Object.values(resp)[1]][0]
         for (var date in stockDataResp) {
           const newStock = new Stock({
@@ -121,6 +119,7 @@ export const fetchStockData = (name) => {
             volume: stockDataResp[date]['5. volume'],
             lastRefreshed: Date.now()
           })
+          newStock.id = stock_id 
           dispatch ({
             type: 'GOT_DATA',
             stock: newStock 
