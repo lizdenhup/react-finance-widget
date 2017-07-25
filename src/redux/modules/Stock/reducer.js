@@ -80,18 +80,13 @@ export default (state = initialState, action) => {
     }
 
     case 'GOT_DATA':
-    console.log('------')
-    console.log(action.stock)
-    return Object.assign({}, ...state, action.stock)
+    return {
+      ...state, 
+      ...state.stocksData[action.stock.name] = action.stock 
+    }
     // need to change stock sinto an object and then key it 
 
     //can store the stocks as an object and not an array 
-
-    // case 'FETCHING_PINNED_STOCK_DATA': 
-    // return {
-    //   ...state,
-
-    // }
 
     case 'REMOVE_PINNED_STOCK':
       const deleteIndex = state.stock.stocks.stocks(stock => stock.index === action.stock_id)
