@@ -9,11 +9,11 @@ import { connect } from 'react-redux';
 // views
 import Navbar from './views/Navbar'
 import Welcome from './views/welcome.js'
-import Signup from './views/Signup'
+import Signup from './views/signup.component.js'
 import Login from './views/Login'
 import Dashboard from './views/dashboard.component.js'
 import NotFound from './views/NotFound'
-import Search from './views/Search'
+import Search from './views/search.component.js'
 
 import { authenticate, authFailure, logout } from './redux/modules/Auth/actions'
 // import { fetchPinnedStocks } from './redux/modules/Stock/actions'
