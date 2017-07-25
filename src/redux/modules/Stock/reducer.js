@@ -2,21 +2,13 @@ const initialState = {
   isFetchingData: false,
   hasFetchedData: false, 
   stocks: [],
+  stocksData: {},
   currentStock: {
     stockSymbol: '',
     stockData: {}
   },
   error: {}
 }
-
-/*
-stocksById: [
-  {stock1: 
-    openingPrice: ''
-    ...
-    low: ''}
-]
-*/
 
 let id = 0; 
 
@@ -90,9 +82,7 @@ export default (state = initialState, action) => {
     case 'GOT_DATA':
     console.log('------')
     console.log(action.stock)
-    return {
-      ...state
-    }
+    return Object.assign({}, ...state, action.stock)
     // need to change stock sinto an object and then key it 
 
     //can store the stocks as an object and not an array 

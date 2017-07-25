@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../../redux/modules/Stock/actions';
-import '../../styles/spin.css';
+import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../redux/modules/Stock/actions';
+import '../styles/spin.css';
 import Panel from 'react-uikit-panel';
 import Grid from 'react-uikit-grid'
 

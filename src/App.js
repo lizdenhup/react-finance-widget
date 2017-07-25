@@ -8,10 +8,10 @@ import { connect } from 'react-redux';
 
 // views
 import Navbar from './views/Navbar'
-import Welcome from './views/Welcome'
+import Welcome from './views/welcome.js'
 import Signup from './views/Signup'
 import Login from './views/Login'
-import Dashboard from './views/Dashboard'
+import Dashboard from './views/dashboard.component.js'
 import NotFound from './views/NotFound'
 import Search from './views/Search'
 
@@ -31,7 +31,7 @@ class App extends Component {
   //do auth in app component and then let other components not worry about it 
   //just check for a user_id, if not then kick user to login page 
   //otherwise assume its there and that will remove race condition 
-  
+
   render() {
     return (
       <Router>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../../redux/modules/Stock/actions';
-import logo from '../../logo.svg';
-import '../../styles/spin.css';
-import StockCard from '../StockCard';
+import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../redux/modules/Stock/actions';
+import logo from '../logo.svg';
+import '../styles/spin.css';
+import StockCard from './stockcard.component.js';
 
 class Dashboard extends Component {
 //create a stock card for each stock it fetches

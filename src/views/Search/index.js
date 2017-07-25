@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { search, updateStockTicker } from '../../redux/modules/Stock/actions';
 import logo from '../../logo.svg';
 import '../../styles/spin.css';
-import StockTable from '../StockTable'
+import StockTable from '../stocktable.component.js'
 
 class Search extends Component {
 
