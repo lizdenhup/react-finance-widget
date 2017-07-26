@@ -6,9 +6,10 @@ import Panel from 'react-uikit-panel';
 
 class StockCard extends Component {
 
+    //i don't understand how to pass down a particular stock object and treat it as a 'stock prop'
     render() {
         const user_id = this.props.currentUser.id 
-        const stock = this.props.stock 
+        const stock = this.props.stock //should be the stockObj keyed by name
         if (!stock) { 
             return null 
         } else {
@@ -44,7 +45,8 @@ class StockCard extends Component {
 
 function mapStateToProps(state) {
   return {
-    currentUser: state.auth.currentUser
+    currentUser: state.auth.currentUser,
+    stocksData: state.stock.stocksData 
   }
 }
 

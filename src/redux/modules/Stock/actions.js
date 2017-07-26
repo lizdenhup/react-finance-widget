@@ -115,7 +115,7 @@ export const fetchStockData = (name, stock_id) => {
             openingPrice: stockDataResp[date]['1. open'],
             high: stockDataResp[date]['2. high'],
             low: stockDataResp[date]['3. low'],
-            close: stockDataResp[date]['4. close'],
+            closingPrice: stockDataResp[date]['4. close'],
             volume: stockDataResp[date]['5. volume'],
             lastRefreshed: Date.now()
           })

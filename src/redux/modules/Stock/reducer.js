@@ -82,8 +82,23 @@ export default (state = initialState, action) => {
     case 'GOT_DATA':
     return {
       ...state, 
-      ...state.stocksData[action.stock.name] = action.stock 
+      stocksData: {
+        ...state.stocksData, 
+        [action.stock.name]: action.stock 
+      }
     }
+
+    //David wrote this
+//     return {
+//   ...state,
+//   stocksData: {
+//     ...stocksData,
+//     [action.stock.name]: {
+//       ...state.stocksData[action.stock.name],
+//       ...action.stock
+//     }
+//   }
+// }
     // need to change stock sinto an object and then key it 
 
     //can store the stocks as an object and not an array 

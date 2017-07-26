@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../redux/modules/Stock/actions';
-import logo from '../logo.svg';
 import '../styles/spin.css';
 import StockCard from './stockcard.component.js';
 import Grid from 'react-uikit-grid'
+import _ from 'lodash'
 
 class Dashboard extends Component {
 //create a stock card for each stock it fetches
@@ -16,38 +16,29 @@ class Dashboard extends Component {
         }
     }
 
-    render() {
-        if (this.props.isAuthenticating) {
+    render() { 
+        const stocks = _.values(this.props.stocksData)   
+        if (stocks && stocks.length > 0) {
             return (
-                <div className="uk-position-center">
-                    <img src={logo} alt="React logo" className="App-logo" />
-                </div>
-                )
+                <Grid>
+                    {Object.values(this.props.stocksData).map((stock) => {
+                        return <StockCard key={stock.id} stock={stock} /> 
+                    })}
+                </Grid> 
+            )
         } else {
-            console.log('this should be the stocksData obj')
-            console.log(this.props.stocksData)
-                if (this.props.stocks && this.props.stocks.length > 0) {
-                    return (
-                        <Grid>
-                            {this.props.stocks.map((stock, index) => {
-                                return <StockCard key={index} stock={stock} /> 
-                            })}
-                        </Grid> 
-                    )
-                } else {
-                    return (
-                    <div>
-                        <p>You have no stocks</p>
-                    </div>
-                    ) 
-                }
+            return (
+            <div>
+                <p>You have no stocks</p>
+            </div>
+            ) 
         }
     }
 }
 
+
 function mapStateToProps(state) {
   return {
-    stocks: state.stock.stocks.stocks, 
     stocksData: state.stock.stocksData,
     currentUser: state.auth.currentUser,
     isAuthenticating: state.auth.isAuthenticating, 
