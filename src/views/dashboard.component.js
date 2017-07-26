@@ -10,10 +10,8 @@ class Dashboard extends Component {
 //create a stock card for each stock it fetches
 
     componentDidMount() {
-        if (this.props.isAuthenticated) {
-            const user_id = this.props.currentUser.id 
-            this.props.fetchPinnedStocks(user_id) 
-        }
+        const user_id = this.props.currentUser.id 
+        this.props.fetchPinnedStocks(user_id) 
     }
 
     render() { 
