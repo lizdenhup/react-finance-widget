@@ -36,14 +36,16 @@ class Search extends Component {
     } else {
       return (
         <div className="uk-position-center">
+          <p>Enter a stock ticker symbol to get started</p>
           <form onSubmit={this.handleSubmit.bind(this)}>
           <input 
+            className="uk-input uk-form-width-medium"
             type="text"
             name="stockSymbol"
             label="Stock Symbol"
             onChange={(e) => this.onStockInputChange(e)}
             />
-            <button type="submit">Submit</button>
+            <button className="uk-button uk-button-default" type="submit">Search</button>
         </form>
         </div> 
       )
