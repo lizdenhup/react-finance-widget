@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Table from 'react-uikit-table';
 import { addStock } from '../redux/modules/Stock/actions';
+import Text from 'react-uikit-text';
+import Panel from 'react-uikit-panel';
+
 
 class StockTable extends Component {
 
   handleClick(e) {
     this.props.addStock(this.props.currentUser.id, {name: this.props.stockSymbol});
-    // console.log(this.props.stockSymbol, this.props.currentUser.id)
-    //pinStock should fire a request to the API to make a new stock nested under the current user
   }
 
   render() {
@@ -25,8 +26,11 @@ class StockTable extends Component {
     }   
     const tableData = [{d1: todaysData[0], d2: todaysData[1], d3: todaysData[2], d4: todaysData[3], d5: todaysData[4]}]
     return (
-      <div className="uk-position-center">
-        <Table caption={`Today's Stock Data for ${ticker}`} head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
+       <div>
+        <Panel box margin='bottom' col='1-1'>
+        <Text bold size='large' textAlign='center' type='span'>Today's Stock Data for {ticker}</Text>
+        </Panel> 
+        <Table head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
         <button onClick={this.handleClick.bind(this)}>Pin this stock</button>
       </div> 
     )

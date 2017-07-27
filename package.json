@@ -15,6 +15,7 @@
     "react-uikit-icons": "^2.0.3",
     "react-uikit-panel": "^2.0.2",
     "react-uikit-table": "^2.0.1",
+    "react-uikit-text": "^2.0.2",
     "redux": "^3.6.0",
     "redux-form": "^6.7.0",
     "redux-thunk": "^2.2.0"
