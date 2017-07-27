@@ -7,10 +7,12 @@ import Grid from 'react-uikit-grid'
 import _ from 'lodash'
 
 class Dashboard extends Component {
-//create a stock card for each stock it fetches
+//find some way of displaying the spinner icon until the number of stock cards equals the number of stocks
+//to prevent the user from seeing the cards being added as the API calls execute 
 
+//perhaps save user id to localStorage and then delete it when the user logs out 
     componentDidMount() {
-        const user_id = this.props.currentUser.id 
+        const user_id = localStorage.getItem('currentUser_id')
         this.props.fetchPinnedStocks(user_id) 
     }
 
@@ -27,7 +29,9 @@ class Dashboard extends Component {
         } else {
             return (
             <div>
-                <p>You have no stocks</p>
+                <p>It looks like you haven't pinned any stocks to your dashboard yet. Add some stocks through the 
+                    search feature to get up-to-the-minute stock data on your dashboard. 
+                </p>
             </div>
             ) 
         }

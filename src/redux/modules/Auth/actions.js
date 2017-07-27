@@ -32,6 +32,7 @@ export const signup = (user, router) => {
        .then(response => {
          const { user, token } = response
          localStorage.setItem('token', JSON.stringify(token))
+         localStorage.setItem('currentUser_id', JSON.stringify(user.id));
          dispatch(authSuccess(user))
          dispatch(reset('signup'))
          router.history.replace('/dashboard')
@@ -50,6 +51,7 @@ export const login = (user, router) => {
       .then(response => {
         const { user, token } = response;
         localStorage.setItem('token', JSON.stringify(token));
+        localStorage.setItem('currentUser_id', JSON.stringify(user.id));
         dispatch(authSuccess(user))
         dispatch(reset('login'));
         router.history.replace('/dashboard');
@@ -69,6 +71,7 @@ export const authenticate = () => {
       .then(response => {
         const { user, token } = response;
         localStorage.setItem('token', JSON.stringify(token));
+        localStorage.setItem('currentUser_id', JSON.stringify(user.id));
         dispatch(authSuccess(user))
       })
       .catch((errors) => {
