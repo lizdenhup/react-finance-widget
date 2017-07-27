@@ -4,7 +4,7 @@ import Table from 'react-uikit-table';
 import { addStock } from '../redux/modules/Stock/actions';
 import Text from 'react-uikit-text';
 import Panel from 'react-uikit-panel';
-
+// var moment = require('moment');
 
 class StockTable extends Component {
 
@@ -31,7 +31,7 @@ class StockTable extends Component {
         <Text bold size='large' textAlign='center' type='span'>Today's Stock Data for {ticker}</Text>
         </Panel> 
         <Table head={['Open', 'High', 'Low', 'Close', 'Volume']} body={tableData}/>
-        <button onClick={this.handleClick.bind(this)}>Pin this stock</button>
+        <button className="uk-button uk-align-center uk-button-default" onClick={this.handleClick.bind(this)}>Pin this stock</button>
       </div> 
     )
   } 
