@@ -78,18 +78,12 @@ export const fetchPinnedStocks = (user_id) => {
   return dispatch => {
     return ApiService.get("/users/" + user_id + "/stocks")
     .then(pinnedStocks => {
-      console.log('this is what the pinnedStocks look like', pinnedStocks)
+      console.log('this is what the pinnedStocks look like', pinnedStocks)      
       pinnedStocks.stocks.map((stock) => {
         dispatch(fetchStockData(stock.name, stock.id))
       })
       dispatch(gotStocks(pinnedStocks))
       //pinned stocks is an object with an array 
-      //fixed nesting 
-
-      //here's where you want to grab the stock data 
-      //repeated API calls will make repeated rerenders 
-      //will be perforamnce issues because AV API does not allow batch requests
-
     }).catch((errors) => {
       console.log(errors)
     })

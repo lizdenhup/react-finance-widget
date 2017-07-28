@@ -18,9 +18,6 @@ class Dashboard extends Component {
 
     render() { 
         const stocks = _.values(this.props.stocksData)   
-        // const uniqueArray = [...new Set(stocks)]
-        // console.log('this is a set')
-        // console.log('uniqueArray')
         if (stocks && stocks.length > 0) {
             return (
                 <Grid>
