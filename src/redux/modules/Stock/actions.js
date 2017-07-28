@@ -125,7 +125,7 @@ export const fetchStockData = (name, stock_id) => {
             stock: newStock 
           })
           break; 
-        }   
+        }
         //returning a new instance of Stock class that needs to be passed to stockcard 
       }).catch((err) =>
         console.log(err) 

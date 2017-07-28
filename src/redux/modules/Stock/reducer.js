@@ -93,11 +93,12 @@ export default (state = initialState, action) => {
     return {
       ...state,
       isFetchingData: false, 
+      hasFetchedData: true, 
       stocksData: {
         ...state.stocksData
       }
     }
-    
+
     case 'REMOVE_PINNED_STOCK':
       const deleteIndex = state.stock.stocks.stocks(stock => stock.index === action.stock_id)
       return {
