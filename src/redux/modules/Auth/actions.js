@@ -85,6 +85,7 @@ export const authenticate = () => {
 
 export const logout = (router) => {
   localStorage.removeItem('token')
+  localStorage.removeItem('currentUser_id')
   router.history.replace('/')
   return { type: 'LOGOUT' }
  }
