@@ -121,7 +121,7 @@ export const fetchStockData = (name, stock_id) => {
           })
           newStock.id = stock_id 
           dispatch ({
-            type: 'GOT_DATA',
+            type: 'GETTING_DATA',
             stock: newStock 
           })
           break; 
@@ -130,6 +130,12 @@ export const fetchStockData = (name, stock_id) => {
       }).catch((err) =>
         console.log(err) 
       )
+  }
+}
+
+export const fetchedAllStocks = () => {
+  return {
+    type: 'GOT_DATA'
   }
 }
 

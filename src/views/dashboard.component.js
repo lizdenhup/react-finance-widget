@@ -30,7 +30,7 @@ class Dashboard extends Component {
             return (
             <div>
                 <p>It looks like you haven't pinned any stocks to your dashboard yet. Add some stocks through the 
-                    search feature to get up-to-the-minute stock data on your dashboard. 
+                    search feature to get up-to-the-minute stock data on your dashboard. Testingggg
                 </p>
             </div>
             ) 

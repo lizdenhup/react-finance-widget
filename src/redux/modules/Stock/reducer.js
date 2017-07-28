@@ -79,30 +79,25 @@ export default (state = initialState, action) => {
       stocks: action.stocks 
     }
 
-    case 'GOT_DATA':
+    case 'GETTING_DATA':
     return {
       ...state, 
+      isFetchingData: true,
       stocksData: {
         ...state.stocksData, 
         [action.stock.name]: action.stock 
       }
     }
 
-    //David wrote this
-//     return {
-//   ...state,
-//   stocksData: {
-//     ...stocksData,
-//     [action.stock.name]: {
-//       ...state.stocksData[action.stock.name],
-//       ...action.stock
-//     }
-//   }
-// }
-    // need to change stock sinto an object and then key it 
-
-    //can store the stocks as an object and not an array 
-
+    case 'GOT_DATA':
+    return {
+      ...state,
+      isFetchingData: false, 
+      stocksData: {
+        ...state.stocksData
+      }
+    }
+    
     case 'REMOVE_PINNED_STOCK':
       const deleteIndex = state.stock.stocks.stocks(stock => stock.index === action.stock_id)
       return {
