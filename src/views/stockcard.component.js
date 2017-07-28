@@ -8,7 +8,7 @@ class StockCard extends Component {
 
     //i don't understand how to pass down a particular stock object and treat it as a 'stock prop'
     render() {
-        const user_id = this.props.currentUser.id 
+        const user_id = localStorage.getItem('currentUser_id') 
         const stock = this.props.stock //should be the stockObj keyed by name
         if (!stock) { 
             return null 
@@ -30,7 +30,7 @@ class StockCard extends Component {
                 <div>
                     Trading Volume: {stock.volume}
                 </div>
-                <button type="submit" onClick={deletePinnedStock(user_id, stock.id)}>Remove</button>
+                <button type="submit" onClick={deletePinnedStock(user_id, stock.name, stock.id)}>Remove</button>
             </Panel>)
         }
     }

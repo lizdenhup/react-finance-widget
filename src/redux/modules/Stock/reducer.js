@@ -100,12 +100,13 @@ export default (state = initialState, action) => {
     }
 
     case 'REMOVE_PINNED_STOCK':
-      const deleteIndex = state.stock.stocks.stocks(stock => stock.index === action.stock_id)
+
       return {
-        stocks: [
-              ...state.stock.stocks.stocks.slice(0, deleteIndex),
-              ...state.stock.stocks.stocks.slice(deleteIndex + 1)
-            ]
+        ...state, 
+        stocksData: {
+          //filter doesn't work on objects
+          ...state.stocksData.delete(stock => stock.name === action.stock_name)
+        }
       }
 
     default: 
