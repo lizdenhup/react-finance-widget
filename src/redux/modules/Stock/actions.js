@@ -139,9 +139,11 @@ export const deletePinnedStock = (user_id, stock_name, stock_id) => {
     return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
     .then(response => {
       // program never gets to this dispatch statement 
+      console.log(response)
       dispatch(removeStock(stock_name, stock_id))
       console.log(response)
     }).catch((errors) => {
+      console.log('-----')
         console.log(errors)
       })
   }

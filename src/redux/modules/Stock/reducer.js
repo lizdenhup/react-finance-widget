@@ -82,7 +82,6 @@ export default (state = initialState, action) => {
     case 'GETTING_DATA':
     return {
       ...state, 
-      isFetchingData: true,
       stocksData: {
         ...state.stocksData, 
         [action.stock.name]: action.stock 
@@ -105,7 +104,7 @@ export default (state = initialState, action) => {
         ...state, 
         stocksData: {
           //filter doesn't work on objects
-          ...state.stocksData.delete(stock => stock.name === action.stock_name)
+          ...state.stocksData.delete((stock) => stock.name === action.stock_name)
         }
       }
 
