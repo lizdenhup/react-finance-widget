@@ -57,7 +57,9 @@ export default {
       method: 'DELETE',
       headers: headers
     })
-    .then(parseResponse)
+    .then((resp) => {
+      return resp.status 
+    })
   }
 
 }

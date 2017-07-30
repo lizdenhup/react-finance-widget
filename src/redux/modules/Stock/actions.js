@@ -136,14 +136,12 @@ export const fetchedAllStocks = () => {
 //actions related to getting rid of a pinned stock from the redux state/rails DB
 export const deletePinnedStock = (user_id, stock_name, stock_id) => {
   return dispatch => {
-    return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
+    ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
     .then(response => {
-      // program never gets to this dispatch statement 
-      console.log(response)
-      dispatch(removeStock(stock_name, stock_id))
-      console.log(response)
+      //dispatch removeStock fn here now that the JSON.parse error is resolved
+      console.log('here is the', response)
     }).catch((errors) => {
-      console.log('-----')
+        console.log('-----')
         console.log(errors)
       })
   }
