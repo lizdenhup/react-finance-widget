@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData, fetchedAllStocks } from '../redux/modules/Stock/actions';
+import { fetchPinnedStocks, deletePinnedStock, fetchStockData } from '../redux/modules/Stock/actions';
 import '../styles/spin.css';
 import StockCard from './stockcard.component.js';
 import Grid from 'react-uikit-grid'
@@ -10,7 +10,6 @@ class Dashboard extends Component {
 //find some way of displaying the spinner icon until the number of stock cards equals the number of stocks
 //to prevent the user from seeing the cards being added as the API calls execute 
 
-//perhaps save user id to localStorage and then delete it when the user logs out 
     componentDidMount() {
         const user_id = localStorage.getItem('currentUser_id')
         this.props.fetchPinnedStocks(user_id) 
@@ -48,5 +47,5 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData })(Dashboard); 
+export default connect(mapStateToProps, { fetchPinnedStocks, deletePinnedStock, fetchStockData })(Dashboard); 
 

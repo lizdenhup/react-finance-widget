@@ -138,8 +138,9 @@ export const deletePinnedStock = (user_id, stock_name, stock_id) => {
   return dispatch => {
     ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
     .then(response => {
-      //dispatch removeStock fn here now that the JSON.parse error is resolved
-      console.log('here is the', response)
+     console.log(dispatch)
+    dispatch(removeStock(stock_name))
+    console.log('here is the', response)
     }).catch((errors) => {
         console.log('-----')
         console.log(errors)
@@ -147,12 +148,10 @@ export const deletePinnedStock = (user_id, stock_name, stock_id) => {
   }
 }
 
-export const removeStock = (stock_name, stock_id) => {
+export const removeStock = (stock_name) => {
   return {
     type: 'REMOVE_PINNED_STOCK',
-    stock_name: stock_name,
-    stock_id: stock_id
-
+    stock_name: stock_name
   }
 }
 

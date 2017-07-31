@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData } from '../redux/modules/Stock/actions';
+import { fetchPinnedStocks, deletePinnedStock, fetchStockData } from '../redux/modules/Stock/actions';
 import '../styles/spin.css';
 import Panel from 'react-uikit-panel';
 
 class StockCard extends Component {
-
-    // handleClick () => {
-        //considering writing custom click handler to handle click 
-    // }
    
     render() {
         const user_id = localStorage.getItem('currentUser_id') 
@@ -34,18 +30,11 @@ class StockCard extends Component {
                     Trading Volume: {stock.volume}
                 </div>
                 <button type="submit" 
-                onClick={deletePinnedStock(user_id, stock.name, stock.id)}>Remove</button>
+                onClick={this.props.deletePinnedStock(user_id, stock.name, stock.id)}>Remove</button>
             </Panel>)
         }
     }
 }
-
-//stock card should be a single component 
-//stockCard can expect a stock to be passed it in props 
-//dashboard will generate stock cards
-//parent component will be connected to state (pull in stocks and then created a stock card for each stock it receives)
-//this.props.name
-//this.props.openingPrice 
 
 function mapStateToProps(state) {
   return {
@@ -54,5 +43,5 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData })(StockCard); 
+export default connect(mapStateToProps, { fetchPinnedStocks, deletePinnedStock, fetchStockData })(StockCard); 
 

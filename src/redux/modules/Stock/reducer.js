@@ -99,12 +99,11 @@ export default (state = initialState, action) => {
     }
 
     case 'REMOVE_PINNED_STOCK':
-
+    //attempting to delete the stock whose name is equal to action.stock_name
       return {
         ...state, 
         stocksData: {
-          //filter doesn't work on objects
-          ...state.stocksData.delete((stock) => stock.name === action.stock_name)
+        delete stocksData[action.stock_name]
         }
       }
 
