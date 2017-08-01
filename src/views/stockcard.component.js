@@ -6,7 +6,6 @@ import Panel from 'react-uikit-panel';
 
 class StockCard extends Component {
 
-    //i don't understand how to pass down a particular stock object and treat it as a 'stock prop'
     render() {
         const user_id = localStorage.getItem('currentUser_id') 
         const stock = this.props.stock //should be the stockObj keyed by name

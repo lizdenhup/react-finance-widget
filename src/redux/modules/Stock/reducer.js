@@ -100,7 +100,6 @@ export default (state = initialState, action) => {
     }
 
     case 'REMOVE_PINNED_STOCK':
-
       return {
         ...state, 
         stocksData: {

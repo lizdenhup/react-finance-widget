@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPinnedStocks, deletePinnedStock, removeStock, fetchStockData, fetchedAllStocks } from '../redux/modules/Stock/actions';
 import '../styles/spin.css';
+import logo from '../logo.svg';
 import StockCard from './stockcard.component.js';
 import Grid from 'react-uikit-grid'
 import _ from 'lodash'
@@ -28,11 +29,9 @@ class Dashboard extends Component {
             )
         } else {
             return (
-            <div>
-                <p>It looks like you haven't pinned any stocks to your dashboard yet. Add some stocks through the 
-                    search feature to get up-to-the-minute stock data on your dashboard. Testingggg
-                </p>
-            </div>
+                <div className="uk-position-center">
+                <img src={logo} alt="React logo" className="App-logo" />
+                </div> 
             ) 
         }
     }
