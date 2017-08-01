@@ -30,7 +30,7 @@ class StockCard extends Component {
                     Trading Volume: {stock.volume}
                 </div>
                 <button type="submit" 
-                onClick={this.props.deletePinnedStock(user_id, stock.name, stock.id)}>Remove</button>
+                onSubmit={this.props.deletePinnedStock(user_id, stock.name, stock.id)}>Remove</button>
             </Panel>)
         }
     }

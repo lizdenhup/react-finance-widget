@@ -101,10 +101,10 @@ export default (state = initialState, action) => {
     case 'REMOVE_PINNED_STOCK':
     //attempting to delete the stock whose name is equal to action.stock_name
       return {
-        ...state, 
-        stocksData: {
-        delete stocksData[action.stock_name]
-        }
+        ...state
+        // stocksData: {
+        // delete stocksData[action.stock_name]
+        // }
       }
 
     default: 
