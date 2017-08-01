@@ -60,7 +60,8 @@ export default {
       method: 'DELETE',
       headers: headers
     })
-    .then(parseResponse)
-  }
-
+    .then((response) => {
+      console.log('------')
+      console.log(response)
+  })}
 }

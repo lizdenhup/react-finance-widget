@@ -6,6 +6,12 @@ import Panel from 'react-uikit-panel';
 
 class StockCard extends Component {
 
+    handleClick(e) {
+        const user_id = localStorage.getItem('currentUser_id')
+        const stock = this.props.stock 
+        this.props.deletePinnedStock(user_id, stock.name, stock.id)
+    }
+
     render() {
         const user_id = localStorage.getItem('currentUser_id') 
         const stock = this.props.stock //should be the stockObj keyed by name
@@ -29,18 +35,11 @@ class StockCard extends Component {
                 <div>
                     Trading Volume: {stock.volume}
                 </div>
-                <button type="submit" onClick={deletePinnedStock(user_id, stock.name, stock.id)}>Remove</button>
+                {/* <button className="uk-button uk-button-default" type="submit" onClick={this.handleClick.bind(this)}>Remove</button> */}
             </Panel>)
         }
     }
 }
-
-//stock card should be a single component 
-//stockCard can expect a stock to be passed it in props 
-//dashboard will generate stock cards
-//parent component will be connected to state (pull in stocks and then created a stock card for each stock it receives)
-//this.props.name
-//this.props.openingPrice 
 
 function mapStateToProps(state) {
   return {

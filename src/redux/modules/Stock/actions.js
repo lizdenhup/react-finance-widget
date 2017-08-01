@@ -136,11 +136,10 @@ export const fetchedAllStocks = () => {
 //actions related to getting rid of a pinned stock from the redux state/rails DB
 export const deletePinnedStock = (user_id, stock_name, stock_id) => {
   return dispatch => {
+    dispatch(removeStock(stock_name, stock_id))
     return ApiService.delete("/users/" + user_id + "/stocks/" + stock_id)
     .then(response => {
-      // program never gets to this dispatch statement 
-      dispatch(removeStock(stock_name, stock_id))
-      console.log(response)
+      console.log('here is the', response)
     }).catch((errors) => {
         console.log(errors)
       })

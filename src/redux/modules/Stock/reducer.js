@@ -100,11 +100,16 @@ export default (state = initialState, action) => {
     }
 
     case 'REMOVE_PINNED_STOCK':
+      let copy = Object.assign({}, ...state.stocksData)
+      delete copy[action.stock_name]
+      console.log('---+++0000---')
+      console.log(copy)
+      //the delete request is going through before the remove_pinned_stock req
       return {
         ...state, 
         stocksData: {
-          //filter doesn't work on objects
-          ...state.stocksData.delete(stock => stock.name === action.stock_name)
+          ...state.stocksData
+          //so, filter the stocks then return the filtered set
         }
       }
 
