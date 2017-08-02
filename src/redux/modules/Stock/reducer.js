@@ -100,11 +100,8 @@ export default (state = initialState, action) => {
     }
 
     case 'REMOVE_PINNED_STOCK':
-      let copy = Object.assign({}, ...state.stocksData)
-      delete copy[action.stock_name]
-      console.log('---+++0000---')
-      console.log(copy)
-      //the delete request is going through before the remove_pinned_stock req
+      // const copy = JSON.parse(JSON.stringify(...state.stock.stocksData))
+      // console.log('should be the copy of stocksData')
       return {
         ...state, 
         stocksData: {

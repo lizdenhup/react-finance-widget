@@ -10,6 +10,8 @@ class StockCard extends Component {
         const user_id = localStorage.getItem('currentUser_id')
         const stock = this.props.stock 
         this.props.deletePinnedStock(user_id, stock.name, stock.id)
+        window.location.reload(true);
+        //possibly only user_id is getting passed in 
     }
 
     render() {
@@ -35,7 +37,7 @@ class StockCard extends Component {
                 <div>
                     Trading Volume: {stock.volume}
                 </div>
-                {/* <button className="uk-button uk-button-default" type="submit" onClick={this.handleClick.bind(this)}>Remove</button> */}
+                 <button className="uk-button uk-button-default" type="submit" onClick={this.handleClick.bind(this)}>Remove</button> 
             </Panel>)
         }
     }
